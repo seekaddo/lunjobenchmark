@@ -36,6 +36,48 @@ format_memory() {
 	fi
 }
 
+sample_resources_windows() {
+	local mode="$1"
+	local fixture_path="$2"
+	local label="$3"
+	local helper_script
+	local helper_output
+	local peak_cpu="0"
+	local peak_rss="0"
+	local target_rc="1"
+	local timed_out="false"
+
+	helper_script="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/windows_resource_sampler.ps1"
+	helper_output="$(
+		powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$helper_script" \
+			-BinaryPath "$VOLTCC_BIN" \
+			-Mode "$mode" \
+			-FixturePath "$fixture_path" \
+			-Seconds "$duration"
+	)"
+
+	for token in $helper_output; do
+		case "$token" in
+			peak_cpu=*) peak_cpu="${token#peak_cpu=}" ;;
+			peak_rss_kb=*) peak_rss="${token#peak_rss_kb=}" ;;
+			exit_code=*) target_rc="${token#exit_code=}" ;;
+			timed_out=*) timed_out="${token#timed_out=}" ;;
+		esac
+	done
+
+	local formatted_rss
+	formatted_rss="$(format_memory "$peak_rss")"
+
+	if [[ "$timed_out" == "true" ]]; then
+		printf '  %-12s timed out after %ss (peak cpu=%s%% peak rss=%s)\n' "$label" "$duration" "$peak_cpu" "$formatted_rss"
+	elif [[ "$target_rc" -eq 0 ]]; then
+		printf '  %-12s peak cpu=%s%% peak rss=%s\n' "$label" "$peak_cpu" "$formatted_rss"
+	else
+		printf '  %-12s failed (exit=%s peak cpu=%s%% peak rss=%s)\n' "$label" "$target_rc" "$peak_cpu" "$formatted_rss" >&2
+		return "$target_rc"
+	fi
+}
+
 sample_resources() {
 	local mode="$1"
 	local fixture_dir="$2"
@@ -48,6 +90,11 @@ sample_resources() {
 	local ps_line=""
 
 	fixture_path="$(normalize_path_for_voltcc "$fixture_dir")"
+	if [[ "$(detect_host_os)" == "windows" ]]; then
+		sample_resources_windows "$mode" "$fixture_path" "$label"
+		return
+	fi
+
 	set +e
 	"$VOLTCC_BIN" "$mode" --no-warnings --dir "$fixture_path" >/dev/null 2>&1 &
 	target_pid=$!

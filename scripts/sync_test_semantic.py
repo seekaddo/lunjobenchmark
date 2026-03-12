@@ -12,6 +12,7 @@ INCLUDED_PATHS = [
     Path("benchmark_syntaxcheck.sh"),
     Path("benchmark_realworld_phases.sh"),
     Path("benchmark_realworld_resources.sh"),
+    Path("windows_resource_sampler.ps1"),
     Path("x681_x682_x683_protocol_ie_container.asn"),
     Path("lteNRRCC"),
     Path("e1ap_rel18.4_specs"),
