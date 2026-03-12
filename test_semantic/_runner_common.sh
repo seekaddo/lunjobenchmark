@@ -4,7 +4,6 @@ set -euo pipefail
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 export ZIG_GLOBAL_CACHE_DIR="${repo_root}/.zig-global-cache"
 export EXEC_DIR="${repo_root}"
-export VOLTCC_BIN="${EXEC_DIR}/zig-out/bin/voltcc"
 
 detect_host_os() {
 	local os
@@ -40,6 +39,12 @@ shell_join() {
 	fi
 	printf "%s" "$joined"
 }
+
+if [[ "$(detect_host_os)" == "windows" ]]; then
+	export VOLTCC_BIN="$(normalize_path_for_voltcc "${EXEC_DIR}/zig-out/bin/voltcc.exe")"
+else
+	export VOLTCC_BIN="${EXEC_DIR}/zig-out/bin/voltcc"
+fi
 
 ensure_built_binary() {
 	if [[ ! -x "${VOLTCC_BIN}" ]]; then
