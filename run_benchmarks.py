@@ -24,8 +24,13 @@ def main() -> None:
     target_dir = Path(args.output_dir) / args.target
     target_dir.mkdir(parents=True, exist_ok=True)
 
+    print(f"Benchmark target: {args.target}", flush=True)
+    print(f"Using binary: {binary}", flush=True)
+    print("Running syntaxcheck suite...", flush=True)
     syntax_data = benchmark_syntaxcheck.run_suite(binary, args.syntax_repeat, benchmark_syntaxcheck.DEFAULT_TARGETS)
+    print("Running realworld phase suite...", flush=True)
     phases_data = benchmark_realworld_phases.run_suite(binary, args.phase_runs, benchmark_realworld_phases.DEFAULT_FIXTURES)
+    print("Running realworld resource suite...", flush=True)
     resources_data = benchmark_realworld_resources.run_suite(binary, benchmark_realworld_resources.DEFAULT_FIXTURES)
 
     summary = {
@@ -41,7 +46,9 @@ def main() -> None:
         },
     }
 
-    write_json(target_dir / "summary.json", summary)
+    summary_path = target_dir / "summary.json"
+    write_json(summary_path, summary)
+    print(f"Wrote benchmark summary: {summary_path}", flush=True)
 
 
 if __name__ == "__main__":

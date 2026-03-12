@@ -67,6 +67,7 @@ jobs:
     name: Publish benchmark results
     runs-on: ubuntu-latest
     needs: benchmark
+    if: ${{ always() }}
 
     steps:
       - name: Check out benchmark repo
@@ -90,8 +91,8 @@ jobs:
       - name: Commit and push benchmark results
         shell: bash
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "Automated"
+          git config user.email "actions@users.noreply.github.com"
           git add README.md bench_results/latest bench_results/history
           if git diff --cached --quiet; then
             echo "No benchmark result changes to commit."
