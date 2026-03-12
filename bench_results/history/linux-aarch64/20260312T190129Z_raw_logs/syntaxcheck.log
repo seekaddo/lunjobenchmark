@@ -1,0 +1,46 @@
+==> test_semantic/x681_x682_x683_protocol_ie_container.asn
+  run 1: elapsed=0.00 sec user=0.00 sys=0.00 cpu=100% rss=2832 KB
+  run 2: elapsed=0.00 sec user=0.00 sys=0.00 cpu=100% rss=2832 KB
+  run 3: elapsed=0.00 sec user=0.00 sys=0.00 cpu=100% rss=2832 KB
+==> test_semantic/lteNRRCC
+  run 1: elapsed=0.12 sec user=0.10 sys=0.02 cpu=99% rss=102544 KB
+  run 2: elapsed=0.12 sec user=0.09 sys=0.03 cpu=100% rss=102544 KB
+  run 3: elapsed=0.12 sec user=0.09 sys=0.03 cpu=99% rss=102544 KB
+==> test_semantic/e1ap_rel18.4_specs
+  run 1: warning: X.680 13.12: Module 'E1AP-CommonDataTypes' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'E1AP-Constants' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'E1AP-Containers' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'E1AP-IEs' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'E1AP-PDU-Contents' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+elapsed=0.10 sec user=0.05 sys=0.04 cpu=99% rss=188816 KB
+  run 2: warning: X.680 13.12: Module 'E1AP-CommonDataTypes' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'E1AP-Constants' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'E1AP-Containers' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'E1AP-IEs' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'E1AP-PDU-Contents' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+elapsed=0.10 sec user=0.05 sys=0.04 cpu=100% rss=188816 KB
+  run 3: warning: X.680 13.12: Module 'E1AP-CommonDataTypes' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'E1AP-Constants' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'E1AP-Containers' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'E1AP-IEs' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'E1AP-PDU-Contents' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+elapsed=0.10 sec user=0.05 sys=0.04 cpu=99% rss=188816 KB
+==> test_semantic/f1ap_rel18.6_specs
+  run 1: warning: X.680 13.12: Module 'F1AP-CommonDataTypes' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'F1AP-Constants' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'F1AP-Containers' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'F1AP-IEs' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'F1AP-PDU-Contents' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+elapsed=0.31 sec user=0.14 sys=0.16 cpu=99% rss=576400 KB
+  run 2: warning: X.680 13.12: Module 'F1AP-CommonDataTypes' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'F1AP-Constants' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'F1AP-Containers' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'F1AP-IEs' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'F1AP-PDU-Contents' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+elapsed=0.30 sec user=0.15 sys=0.14 cpu=99% rss=576400 KB
+  run 3: warning: X.680 13.12: Module 'F1AP-CommonDataTypes' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'F1AP-Constants' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'F1AP-Containers' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'F1AP-IEs' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+warning: X.680 13.12: Module 'F1AP-PDU-Contents' has DefinitiveIdentification, import should include AssignedIdentifier (OID)
+elapsed=0.30 sec user=0.16 sys=0.14 cpu=100% rss=576400 KB
