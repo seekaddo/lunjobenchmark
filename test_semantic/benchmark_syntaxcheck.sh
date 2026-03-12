@@ -38,9 +38,11 @@ fi
 
 for target in "${targets[@]}"; do
 	if [[ -d "${target}" ]]; then
-		args=(--syntaxcheck --dir "${target}")
+		target_path="$(normalize_path_for_voltcc "${target}")"
+		args=(--syntaxcheck --dir "${target_path}")
 	else
-		args=(--syntaxcheck "${target}")
+		target_path="$(normalize_path_for_voltcc "${target}")"
+		args=(--syntaxcheck "${target_path}")
 	fi
 
 	printf '==> %s\n' "${target}"

@@ -35,10 +35,13 @@ printf 'Note: there is no --validate-only mode yet, so validator cost is approxi
 
 for fixture_dir in "${fixture_dirs[@]}"; do
 	printf '==> %s\n' "$fixture_dir"
+	fixture_path="$(normalize_path_for_voltcc "$fixture_dir")"
+	parse_cmd="$(shell_join "$VOLTCC_BIN" --parse-only --no-warnings --dir "$fixture_path") >/dev/null 2>&1"
+	syntax_cmd="$(shell_join "$VOLTCC_BIN" --syntaxcheck --no-warnings --dir "$fixture_path") >/dev/null 2>&1"
 	hyperfine \
 		--warmup 1 \
 		--runs "$runs" \
-		"$VOLTCC_BIN --parse-only --no-warnings --dir $fixture_dir >/dev/null 2>&1" \
-		"$VOLTCC_BIN --syntaxcheck --no-warnings --dir $fixture_dir >/dev/null 2>&1"
+		"$parse_cmd" \
+		"$syntax_cmd"
 	printf '\n'
 done

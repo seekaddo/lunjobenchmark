@@ -40,14 +40,16 @@ sample_resources() {
 	local mode="$1"
 	local fixture_dir="$2"
 	local label="$3"
+	local fixture_path
 	local target_pid
 	local killer_pid
 	local peak_cpu="0"
 	local peak_rss="0"
 	local ps_line=""
 
+	fixture_path="$(normalize_path_for_voltcc "$fixture_dir")"
 	set +e
-	"$VOLTCC_BIN" "$mode" --no-warnings --dir "$fixture_dir" >/dev/null 2>&1 &
+	"$VOLTCC_BIN" "$mode" --no-warnings --dir "$fixture_path" >/dev/null 2>&1 &
 	target_pid=$!
 	(
 		sleep "$duration"
