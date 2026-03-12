@@ -1,6 +1,9 @@
 name: Benchmark Voltcc
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
   schedule:
     - cron: "05 10,22 * * *"
