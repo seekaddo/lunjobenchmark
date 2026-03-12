@@ -18,7 +18,7 @@ detect_host_os() {
 normalize_path_for_voltcc() {
 	local path="$1"
 	if [[ "$(detect_host_os)" == "windows" ]] && command -v cygpath >/dev/null 2>&1; then
-		cygpath -w "$path"
+		cygpath -am "$path"
 	else
 		printf "%s\n" "$path"
 	fi
