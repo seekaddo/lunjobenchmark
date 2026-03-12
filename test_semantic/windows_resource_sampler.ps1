@@ -78,13 +78,12 @@ try {
         }
     }
 
-    [Console]::WriteLine(
-        "peak_cpu={0:N1} peak_rss_kb={1} exit_code={2} timed_out={3}" -f
-            $peakCpu,
-            $peakRssKb,
-            $proc.ExitCode,
-            $timedOut.ToString().ToLowerInvariant()
-    )
+    $resultLine = "peak_cpu={0:N1} peak_rss_kb={1} exit_code={2} timed_out={3}" -f `
+        $peakCpu, `
+        $peakRssKb, `
+        $proc.ExitCode, `
+        $timedOut.ToString().ToLowerInvariant()
+    [Console]::WriteLine($resultLine)
 } finally {
     Remove-Item -LiteralPath $stdoutFile, $stderrFile -ErrorAction SilentlyContinue
 }
