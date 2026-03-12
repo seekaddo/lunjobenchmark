@@ -33,21 +33,26 @@ done
 printf 'Benchmarking parser-only and full syntaxcheck on real-world directories.\n'
 printf 'Note: there is no --validate-only mode yet, so validator cost is approximated by comparing parse-only with syntaxcheck.\n\n'
 
-hyperfine_shell_args=()
-if [[ "$(detect_host_os)" == "windows" ]]; then
-	hyperfine_shell_args=(--shell bash)
-fi
-
 for fixture_dir in "${fixture_dirs[@]}"; do
 	printf '==> %s\n' "$fixture_dir"
 	fixture_path="$(normalize_path_for_voltcc "$fixture_dir")"
-	parse_cmd="$(shell_join "$VOLTCC_BIN" --parse-only --no-warnings --dir "$fixture_path") >/dev/null 2>&1"
-	syntax_cmd="$(shell_join "$VOLTCC_BIN" --syntaxcheck --no-warnings --dir "$fixture_path") >/dev/null 2>&1"
-	hyperfine \
-		"${hyperfine_shell_args[@]}" \
-		--warmup 1 \
-		--runs "$runs" \
-		"$parse_cmd" \
-		"$syntax_cmd"
+	if [[ "$(detect_host_os)" == "windows" ]]; then
+		parse_cmd="$VOLTCC_BIN --parse-only --no-warnings --dir $fixture_path"
+		syntax_cmd="$VOLTCC_BIN --syntaxcheck --no-warnings --dir $fixture_path"
+		hyperfine \
+			--shell=none \
+			--warmup 1 \
+			--runs "$runs" \
+			"$parse_cmd" \
+			"$syntax_cmd"
+	else
+		parse_cmd="$(shell_join "$VOLTCC_BIN" --parse-only --no-warnings --dir "$fixture_path") >/dev/null 2>&1"
+		syntax_cmd="$(shell_join "$VOLTCC_BIN" --syntaxcheck --no-warnings --dir "$fixture_path") >/dev/null 2>&1"
+		hyperfine \
+			--warmup 1 \
+			--runs "$runs" \
+			"$parse_cmd" \
+			"$syntax_cmd"
+	fi
 	printf '\n'
 done
