@@ -16,7 +16,7 @@ PHASE_TIME_RE = re.compile(
 )
 PHASE_ABS_RE = re.compile(r"Time \(abs ≡\):\s+([0-9.]+)\s+([a-zµ]+)", re.IGNORECASE)
 RESOURCE_RE = re.compile(
-    r"^\s*(parse-only|syntaxcheck)\s+.*peak cpu=([^%]+)% peak rss=([0-9.]+)\s+(KB|MB|GB)",
+    r"^\s*(parse-only|syntaxcheck)\s+.*(?:peak cpu|cpu)=([^%]+)%\s+(?:peak rss|max rss)=([0-9.]+)\s+(KB|MB|GB)",
     re.IGNORECASE,
 )
 

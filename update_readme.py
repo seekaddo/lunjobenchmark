@@ -139,6 +139,17 @@ def main() -> None:
         archive_dir = history_dir / target
         archive_dir.mkdir(parents=True, exist_ok=True)
         write_json(archive_dir / f"{timestamp}.json", summary)
+        raw_logs_dir = target_dir / "raw_logs"
+        if raw_logs_dir.exists():
+            latest_raw_dir = latest_dir / "raw_logs" / target
+            if latest_raw_dir.exists():
+                shutil.rmtree(latest_raw_dir)
+            shutil.copytree(raw_logs_dir, latest_raw_dir)
+
+            archive_raw_dir = history_dir / target / f"{timestamp}_raw_logs"
+            if archive_raw_dir.exists():
+                shutil.rmtree(archive_raw_dir)
+            shutil.copytree(raw_logs_dir, archive_raw_dir)
         latest_summaries.append(summary)
 
     if latest_summaries:

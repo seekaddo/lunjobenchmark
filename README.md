@@ -11,7 +11,7 @@ Benchmarking `voltcc` parser, syntaxcheck, and validator-adjacent phases across 
 - `run_benchmarks.sh`: runs the copied upstream benchmark scripts and writes per-target JSON results
 - `collect_benchmark_results.py`: parses the copied benchmark script logs into summary JSON
 - `update_readme.py`: updates the results section from `bench_results`
-- `bench_results/`: latest and historical benchmark output
+- `bench_results/`: latest and historical benchmark output, including raw console logs for each benchmark suite alongside the JSON summaries
 
 ## Assumptions
 
