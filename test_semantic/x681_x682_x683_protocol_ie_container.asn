@@ -1,0 +1,94 @@
+COMMON
+	DEFINITIONS ::=
+BEGIN
+
+	Criticality ::= ENUMERATED { reject, ignore, notify }
+	Id ::= INTEGER
+	maxProtocolIEs INTEGER ::= 16
+
+END
+
+CONTAINERS
+	DEFINITIONS ::=
+BEGIN
+
+	IMPORTS
+		Criticality, Id, maxProtocolIEs
+		FROM COMMON;
+
+	IES ::= CLASS {
+		&id		Id UNIQUE,
+		&criticality	Criticality DEFAULT ignore,
+		&Value
+	}
+	WITH SYNTAX {
+		ID		&id
+		[CRITICALITY	&criticality]
+		TYPE		&Value
+	}
+
+	ProtocolIE-Field {IES : IEsSetParam} ::= SEQUENCE {
+		id		IES.&id({IEsSetParam}),
+		criticality	IES.&criticality({IEsSetParam}{@id}),
+		value		IES.&Value({IEsSetParam}{@id})
+	}
+
+	ProtocolIE-SingleContainer {IES : IEsSetParam} ::= ProtocolIE-Field {{IEsSetParam}}
+
+	ProtocolIE-Container {IES : IEsSetParam} ::= SEQUENCE (SIZE(1..maxProtocolIEs)) OF
+		ProtocolIE-Field {{IEsSetParam}}
+
+END
+
+APP
+	DEFINITIONS ::=
+BEGIN
+
+	IMPORTS
+		IES, ProtocolIE-SingleContainer{}, ProtocolIE-Container{}
+		FROM CONTAINERS;
+
+	flagIE IES ::= {
+		ID	10
+		TYPE	BOOLEAN
+	}
+
+	countIE IES ::= {
+		ID	11
+		CRITICALITY	reject
+		TYPE		INTEGER
+	}
+
+	labelIE IES ::= {
+		ID	12
+		CRITICALITY	notify
+		TYPE		IA5String
+	}
+
+	SupportedIEs IES ::= { flagIE | countIE | labelIE }
+
+	singleFlag ProtocolIE-SingleContainer {{SupportedIEs}} ::= {
+		id		10,
+		criticality	ignore,
+		value		BOOLEAN : TRUE
+	}
+
+	allIEs ProtocolIE-Container {{SupportedIEs}} ::= {
+			{
+				id		10,
+				criticality	ignore,
+				value		BOOLEAN : TRUE
+			},
+			{
+				id		11,
+				criticality	reject,
+				value		INTEGER : 7
+			},
+			{
+				id		12,
+				criticality	notify,
+				value		IA5String : "label"
+			}
+		}
+
+END

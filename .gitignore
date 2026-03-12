@@ -1,3 +1,9 @@
 .zig-cache/
 zig-out/
 *.o
+voltcc
+voltcc.exe
+tmp_extract/
+bench_results/incoming/
+bench_results/tmp/
+__pycache__/

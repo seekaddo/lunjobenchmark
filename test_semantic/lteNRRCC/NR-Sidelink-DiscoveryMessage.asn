@@ -1,0 +1,19 @@
+NR-Sidelink-DiscoveryMessage DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+
+IMPORTS
+
+CellAccessRelatedInfo, SL-ServingCellInfo-r17, SL-RelayIndicationMP-r18
+FROM NR-RRC-Definitions ;
+
+-- Productions
+
+SL-AccessInfo-L2U2N-r17 ::= SEQUENCE {
+   cellAccessRelatedInfo-r17 [0] CellAccessRelatedInfo,
+   sl-ServingCellInfo-r17 [1] SL-ServingCellInfo-r17,
+   ...,
+   [[
+      sl-RelayIndication-r18 [2] SL-RelayIndicationMP-r18 OPTIONAL
+   ]]
+}
+
+END
