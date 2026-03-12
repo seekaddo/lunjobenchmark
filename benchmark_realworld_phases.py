@@ -24,8 +24,15 @@ def run_suite(binary: Path, runs: int, fixtures: list[str]) -> dict[str, Any]:
         fixture = fixture_path(fixture_name)
         parse_cmd = [str(binary), "--parse-only", "--no-warnings", *fixture_args(fixture)]
         syntax_cmd = [str(binary), "--syntaxcheck", "--no-warnings", *fixture_args(fixture)]
+        print(f"[phases] fixture={fixture_name} parse_only runs={runs}", flush=True)
         parse_times = timed_repeats(parse_cmd, runs)
+        print(f"[phases] fixture={fixture_name} syntaxcheck runs={runs}", flush=True)
         syntax_times = timed_repeats(syntax_cmd, runs)
+        print(
+            "[phases] fixture="
+            f"{fixture_name} parse_mean_sec={mean(parse_times):.4f} syntax_mean_sec={mean(syntax_times):.4f}",
+            flush=True,
+        )
         results.append(
             {
                 "fixture": fixture_name,

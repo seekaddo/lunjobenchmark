@@ -21,8 +21,13 @@ def run_suite(binary: Path, repeat: int, targets: list[str]) -> dict[str, Any]:
     for target in targets:
         fixture = fixture_path(target)
         command = [str(binary), "--syntaxcheck", *fixture_args(fixture)]
+        print(f"[syntaxcheck] fixture={target} kind={'dir' if fixture.is_dir() else 'file'} repeat={repeat}", flush=True)
 
         measurements = [run_elapsed(command)["elapsed_sec"] for _ in range(repeat)]
+        print(
+            f"[syntaxcheck] fixture={target} mean_sec={sum(measurements) / len(measurements):.4f}",
+            flush=True,
+        )
         results.append(
             {
                 "fixture": target,

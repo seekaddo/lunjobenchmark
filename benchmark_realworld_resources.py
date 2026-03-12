@@ -20,11 +20,20 @@ def run_suite(binary: Path, fixtures: list[str]) -> dict[str, Any]:
         fixture = fixture_path(fixture_name)
         parse_cmd = [str(binary), "--parse-only", "--no-warnings", *fixture_args(fixture)]
         syntax_cmd = [str(binary), "--syntaxcheck", "--no-warnings", *fixture_args(fixture)]
+        print(f"[resources] fixture={fixture_name} parse_only", flush=True)
+        parse_result = sample_process(parse_cmd)
+        print(f"[resources] fixture={fixture_name} syntaxcheck", flush=True)
+        syntax_result = sample_process(syntax_cmd)
+        print(
+            "[resources] fixture="
+            f"{fixture_name} parse_rss_kb={parse_result['peak_rss_kb']} syntax_rss_kb={syntax_result['peak_rss_kb']}",
+            flush=True,
+        )
         results.append(
             {
                 "fixture": fixture_name,
-                "parse_only": sample_process(parse_cmd),
-                "syntaxcheck": sample_process(syntax_cmd),
+                "parse_only": parse_result,
+                "syntaxcheck": syntax_result,
             }
         )
     return {"suite": "realworld_resources", "fixtures": results}
