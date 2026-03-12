@@ -69,10 +69,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p .ci-bin
-          cat > .ci-bin/time <<'EOF'
-#!/usr/bin/env bash
-exec python scripts/time_shim.py "$@"
-EOF
+          printf '%s\n' '#!/usr/bin/env bash' 'exec python scripts/time_shim.py "$@"' > .ci-bin/time
           chmod +x .ci-bin/time
 
       - name: Prepare release binary
