@@ -27,6 +27,22 @@ def phase_lookup(summary: dict[str, Any]) -> dict[str, float]:
     return result
 
 
+def format_rss_kb(value: int | None) -> str:
+    if value is None:
+        return "n/a"
+    if value >= 1024 * 1024:
+        return f"{value / (1024 * 1024):.2f} GB"
+    if value >= 1024:
+        return f"{value / 1024:.2f} MB"
+    return f"{value} KB"
+
+
+def format_cpu_pct(value: float | None) -> str:
+    if value is None:
+        return "n/a"
+    return f"{value:.1f}%"
+
+
 def trend(current: float, previous: float | None) -> str:
     if previous is None:
         return "new"
@@ -54,6 +70,8 @@ def build_readme_block(latest: list[dict[str, Any]], previous_by_target: dict[st
         prev_phases = phase_lookup(prev) if prev else {}
         lines.append(f"### {target}")
         lines.append("")
+        lines.append("#### Timing")
+        lines.append("")
         lines.append("| Fixture | Syntaxcheck mean | Previous | Delta | Trend |")
         lines.append("| --- | ---: | ---: | ---: | --- |")
         for fixture in summary["suites"]["realworld_phases"]["fixtures"]:
@@ -63,6 +81,20 @@ def build_readme_block(latest: list[dict[str, Any]], previous_by_target: dict[st
             previous_text = f"{previous:.4f}s" if previous is not None else "n/a"
             lines.append(
                 f"| `{name}` | {current:.4f}s | {previous_text} | {format_delta(current, previous)} | {trend(current, previous)} |"
+            )
+        lines.append("")
+        lines.append("#### Resources")
+        lines.append("")
+        lines.append("| Fixture | Parse RSS | Syntax RSS | Parse CPU | Syntax CPU |")
+        lines.append("| --- | ---: | ---: | ---: | ---: |")
+        for fixture in summary["suites"]["realworld_resources"]["fixtures"]:
+            lines.append(
+                "| "
+                f"`{fixture['fixture']}` | "
+                f"{format_rss_kb(fixture['parse_only']['peak_rss_kb'])} | "
+                f"{format_rss_kb(fixture['syntaxcheck']['peak_rss_kb'])} | "
+                f"{format_cpu_pct(fixture['parse_only']['peak_cpu_pct'])} | "
+                f"{format_cpu_pct(fixture['syntaxcheck']['peak_cpu_pct'])} |"
             )
         lines.append("")
     return "\n".join(lines).rstrip()
