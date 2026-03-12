@@ -64,6 +64,17 @@ jobs:
         run: |
           choco install hyperfine --no-progress -y
 
+      - name: Provide GNU-compatible time shim
+        if: runner.os != 'Linux'
+        shell: bash
+        run: |
+          mkdir -p .ci-bin
+          cat > .ci-bin/time <<'EOF'
+#!/usr/bin/env bash
+exec python scripts/time_shim.py "$@"
+EOF
+          chmod +x .ci-bin/time
+
       - name: Prepare release binary
         shell: bash
         run: |
@@ -73,7 +84,7 @@ jobs:
       - name: Run benchmark suites
         shell: bash
         run: |
-          bash ./run_benchmarks.sh --target "${{ matrix.target }}"
+          PATH="$PWD/.ci-bin:$PATH" bash ./run_benchmarks.sh --target "${{ matrix.target }}"
 
       - name: Upload benchmark summary
         uses: actions/upload-artifact@v4
