@@ -7,3 +7,4 @@ tmp_extract/
 bench_results/incoming/
 bench_results/tmp/
 __pycache__/
+tmp/

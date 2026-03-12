@@ -75,9 +75,11 @@ if [[ -z "$archive_root" || ! -d "$archive_root" ]]; then
 fi
 
 rm -f "$bench_root/voltcc" "$bench_root/voltcc.exe"
+rm -rf "$bench_root/zig-out"
 tmp_dir="$bench_root/tmp_extract/$target"
 rm -rf "$tmp_dir"
 mkdir -p "$tmp_dir"
+mkdir -p "$bench_root/zig-out/bin"
 
 archive_path="$(find "$archive_root" -maxdepth 1 -type f -name "voltcc-v*-${target}.tar.gz" | sort | tail -n 1)"
 if [[ -n "$archive_path" ]]; then
@@ -90,6 +92,13 @@ if [[ -n "$archive_path" ]]; then
 				exit 1
 			fi
 			cp "$bin_path" "$bench_root/voltcc.exe"
+			cp "$bin_path" "$bench_root/zig-out/bin/voltcc.exe"
+			cat >"$bench_root/zig-out/bin/voltcc" <<'EOF'
+#!/usr/bin/env bash
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec "$script_dir/voltcc.exe" "$@"
+EOF
+			chmod +x "$bench_root/zig-out/bin/voltcc"
 			;;
 		*)
 			bin_path="$(find "$tmp_dir" -type f -name "voltcc-${target}" | head -n 1)"
@@ -98,7 +107,9 @@ if [[ -n "$archive_path" ]]; then
 				exit 1
 			fi
 			cp "$bin_path" "$bench_root/voltcc"
+			cp "$bin_path" "$bench_root/zig-out/bin/voltcc"
 			chmod +x "$bench_root/voltcc"
+			chmod +x "$bench_root/zig-out/bin/voltcc"
 			;;
 	esac
 else
@@ -107,11 +118,20 @@ else
 			dir_name="${target%%-*}"
 			bin_path="$archive_root/$dir_name/voltcc-${target}"
 			cp "$bin_path" "$bench_root/voltcc"
+			cp "$bin_path" "$bench_root/zig-out/bin/voltcc"
 			chmod +x "$bench_root/voltcc"
+			chmod +x "$bench_root/zig-out/bin/voltcc"
 			;;
 		windows-*)
 			bin_path="$archive_root/windows/voltcc-${target}.exe"
 			cp "$bin_path" "$bench_root/voltcc.exe"
+			cp "$bin_path" "$bench_root/zig-out/bin/voltcc.exe"
+			cat >"$bench_root/zig-out/bin/voltcc" <<'EOF'
+#!/usr/bin/env bash
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec "$script_dir/voltcc.exe" "$@"
+EOF
+			chmod +x "$bench_root/zig-out/bin/voltcc"
 			;;
 		*)
 			echo "unsupported target: $target" >&2

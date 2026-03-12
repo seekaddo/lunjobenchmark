@@ -45,16 +45,35 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install hyperfine (Linux)
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y hyperfine time
+
+      - name: Install hyperfine (macOS)
+        if: runner.os == 'macOS'
+        shell: bash
+        run: |
+          brew install hyperfine
+
+      - name: Install hyperfine (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          choco install hyperfine --no-progress -y
+
       - name: Prepare release binary
         shell: bash
         run: |
-          chmod +x preparebin.sh
+          chmod +x preparebin.sh run_benchmarks.sh test_semantic/_runner_common.sh test_semantic/benchmark_syntaxcheck.sh test_semantic/benchmark_realworld_phases.sh test_semantic/benchmark_realworld_resources.sh
           ./preparebin.sh --target "${{ matrix.target }}"
 
       - name: Run benchmark suites
         shell: bash
         run: |
-          python run_benchmarks.py --target "${{ matrix.target }}"
+          bash ./run_benchmarks.sh --target "${{ matrix.target }}"
 
       - name: Upload benchmark summary
         uses: actions/upload-artifact@v4

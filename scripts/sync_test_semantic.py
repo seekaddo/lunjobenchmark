@@ -8,6 +8,10 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT.parent / "test_semantic"
 DEST = ROOT / "test_semantic"
 INCLUDED_PATHS = [
+    Path("_runner_common.sh"),
+    Path("benchmark_syntaxcheck.sh"),
+    Path("benchmark_realworld_phases.sh"),
+    Path("benchmark_realworld_resources.sh"),
     Path("x681_x682_x683_protocol_ie_container.asn"),
     Path("lteNRRCC"),
     Path("e1ap_rel18.4_specs"),
