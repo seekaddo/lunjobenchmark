@@ -59,6 +59,14 @@ def to_posix_string(path: Path) -> str:
     return path.as_posix()
 
 
+def fixture_args(fixture: Path) -> list[str]:
+    if fixture.is_dir():
+        if IS_WINDOWS:
+            return [str(path) for path in sorted(fixture.rglob("*.asn"))]
+        return ["--dir", str(fixture)]
+    return [str(fixture)]
+
+
 def run_elapsed(command: list[str]) -> dict[str, Any]:
     start = time.perf_counter()
     proc = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)

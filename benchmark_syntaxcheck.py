@@ -4,7 +4,7 @@ import argparse
 from pathlib import Path
 from typing import Any
 
-from _bench_common import DEFAULT_BINARY, ensure_binary, fixture_path, run_elapsed, write_json
+from _bench_common import DEFAULT_BINARY, ensure_binary, fixture_args, fixture_path, run_elapsed, write_json
 
 
 DEFAULT_TARGETS = [
@@ -20,10 +20,7 @@ def run_suite(binary: Path, repeat: int, targets: list[str]) -> dict[str, Any]:
     results: list[dict[str, Any]] = []
     for target in targets:
         fixture = fixture_path(target)
-        if fixture.is_dir():
-            command = [str(binary), "--syntaxcheck", "--dir", str(fixture)]
-        else:
-            command = [str(binary), "--syntaxcheck", str(fixture)]
+        command = [str(binary), "--syntaxcheck", *fixture_args(fixture)]
 
         measurements = [run_elapsed(command)["elapsed_sec"] for _ in range(repeat)]
         results.append(

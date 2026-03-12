@@ -4,7 +4,7 @@ import argparse
 from pathlib import Path
 from typing import Any
 
-from _bench_common import DEFAULT_BINARY, ensure_binary, fixture_path, sample_process, write_json
+from _bench_common import DEFAULT_BINARY, ensure_binary, fixture_args, fixture_path, sample_process, write_json
 
 
 DEFAULT_FIXTURES = [
@@ -18,8 +18,8 @@ def run_suite(binary: Path, fixtures: list[str]) -> dict[str, Any]:
     results: list[dict[str, Any]] = []
     for fixture_name in fixtures:
         fixture = fixture_path(fixture_name)
-        parse_cmd = [str(binary), "--parse-only", "--no-warnings", "--dir", str(fixture)]
-        syntax_cmd = [str(binary), "--syntaxcheck", "--no-warnings", "--dir", str(fixture)]
+        parse_cmd = [str(binary), "--parse-only", "--no-warnings", *fixture_args(fixture)]
+        syntax_cmd = [str(binary), "--syntaxcheck", "--no-warnings", *fixture_args(fixture)]
         results.append(
             {
                 "fixture": fixture_name,
