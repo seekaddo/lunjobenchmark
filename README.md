@@ -22,7 +22,7 @@ Benchmarking `voltcc` parser, syntaxcheck, and validator-adjacent phases across 
 ## Latest Results
 
 <!-- BENCH_RESULTS_START -->
-Generated: 2026-03-12T17:53:19.475429+00:00
+Generated: 2026-03-12T18:07:17.704015+00:00
 
 ### linux-aarch64
 
@@ -30,17 +30,17 @@ Generated: 2026-03-12T17:53:19.475429+00:00
 
 | Fixture | Syntaxcheck mean | Previous | Delta | Trend |
 | --- | ---: | ---: | ---: | --- |
-| `e1ap_rel18.4_specs` | 0.0979s | 0.0984s | -0.0005s | improved |
-| `f1ap_rel18.6_specs` | 0.3021s | 0.3057s | -0.0036s | improved |
-| `ngap_rel18.6_specs` | 0.2191s | 0.2196s | -0.0005s | improved |
+| `e1ap_rel18.4_specs` | 0.0979s | 0.0979s | +0.0000s | flat |
+| `f1ap_rel18.6_specs` | 0.3015s | 0.3021s | -0.0006s | improved |
+| `ngap_rel18.6_specs` | 0.2243s | 0.2191s | +0.0052s | worse |
 
 #### Resources
 
 | Fixture | Parse RSS | Syntax RSS | Parse CPU | Syntax CPU |
 | --- | ---: | ---: | ---: | ---: |
-| `e1ap_rel18.4_specs` | 5.49 MB | 5.52 MB | 0.0% | 0.0% |
-| `f1ap_rel18.6_specs` | 6.58 MB | 461.41 MB | 0.0% | 100.0% |
-| `ngap_rel18.6_specs` | 5.94 MB | 232.93 MB | 0.0% | 100.0% |
+| `e1ap_rel18.4_specs` | 5.30 MB | 5.30 MB | 0.0% | 0.0% |
+| `f1ap_rel18.6_specs` | 6.38 MB | 471.40 MB | 0.0% | 100.0% |
+| `ngap_rel18.6_specs` | 5.68 MB | 238.05 MB | 0.0% | 91.6% |
 
 ### linux-i386
 
@@ -48,17 +48,17 @@ Generated: 2026-03-12T17:53:19.475429+00:00
 
 | Fixture | Syntaxcheck mean | Previous | Delta | Trend |
 | --- | ---: | ---: | ---: | --- |
-| `e1ap_rel18.4_specs` | 0.0726s | 0.0685s | +0.0041s | worse |
-| `f1ap_rel18.6_specs` | 0.2235s | 0.1943s | +0.0292s | worse |
-| `ngap_rel18.6_specs` | 0.1503s | 0.1421s | +0.0082s | worse |
+| `e1ap_rel18.4_specs` | 0.0691s | 0.0726s | -0.0035s | improved |
+| `f1ap_rel18.6_specs` | 0.1933s | 0.2235s | -0.0302s | improved |
+| `ngap_rel18.6_specs` | 0.1417s | 0.1503s | -0.0086s | improved |
 
 #### Resources
 
 | Fixture | Parse RSS | Syntax RSS | Parse CPU | Syntax CPU |
 | --- | ---: | ---: | ---: | ---: |
-| `e1ap_rel18.4_specs` | 4.80 MB | 4.95 MB | 0.0% | 0.0% |
-| `f1ap_rel18.6_specs` | 6.07 MB | 206.27 MB | 0.0% | 92.3% |
-| `ngap_rel18.6_specs` | 5.27 MB | 198.36 MB | 0.0% | 92.3% |
+| `e1ap_rel18.4_specs` | 4.39 MB | 4.68 MB | 0.0% | 0.0% |
+| `f1ap_rel18.6_specs` | 5.11 MB | 220.13 MB | 0.0% | 92.3% |
+| `ngap_rel18.6_specs` | 5.52 MB | 248.85 MB | 0.0% | 92.3% |
 
 ### linux-x86_64
 
@@ -66,17 +66,17 @@ Generated: 2026-03-12T17:53:19.475429+00:00
 
 | Fixture | Syntaxcheck mean | Previous | Delta | Trend |
 | --- | ---: | ---: | ---: | --- |
-| `e1ap_rel18.4_specs` | 0.0713s | 0.0709s | +0.0004s | worse |
-| `f1ap_rel18.6_specs` | 0.1982s | 0.1971s | +0.0011s | worse |
-| `ngap_rel18.6_specs` | 0.1480s | 0.1430s | +0.0050s | worse |
+| `e1ap_rel18.4_specs` | 0.0693s | 0.0713s | -0.0020s | improved |
+| `f1ap_rel18.6_specs` | 0.1958s | 0.1982s | -0.0024s | improved |
+| `ngap_rel18.6_specs` | 0.1462s | 0.1480s | -0.0018s | improved |
 
 #### Resources
 
 | Fixture | Parse RSS | Syntax RSS | Parse CPU | Syntax CPU |
 | --- | ---: | ---: | ---: | ---: |
-| `e1ap_rel18.4_specs` | 6.81 MB | 6.93 MB | 0.0% | 0.0% |
-| `f1ap_rel18.6_specs` | 8.79 MB | 348.44 MB | 0.0% | 92.3% |
-| `ngap_rel18.6_specs` | 7.99 MB | 376.51 MB | 0.0% | 92.3% |
+| `e1ap_rel18.4_specs` | 6.61 MB | 6.68 MB | 0.0% | 0.0% |
+| `f1ap_rel18.6_specs` | 8.29 MB | 348.38 MB | 0.0% | 92.3% |
+| `ngap_rel18.6_specs` | 7.11 MB | 363.63 MB | 0.0% | 100.0% |
 
 ### macos-aarch64
 
@@ -84,15 +84,15 @@ Generated: 2026-03-12T17:53:19.475429+00:00
 
 | Fixture | Syntaxcheck mean | Previous | Delta | Trend |
 | --- | ---: | ---: | ---: | --- |
-| `e1ap_rel18.4_specs` | 0.0628s | 0.0459s | +0.0169s | worse |
-| `f1ap_rel18.6_specs` | 0.1783s | 0.1381s | +0.0402s | worse |
-| `ngap_rel18.6_specs` | 0.1177s | 0.1003s | +0.0174s | worse |
+| `e1ap_rel18.4_specs` | 0.0721s | 0.0628s | +0.0093s | worse |
+| `f1ap_rel18.6_specs` | 0.1975s | 0.1783s | +0.0192s | worse |
+| `ngap_rel18.6_specs` | 0.2170s | 0.1177s | +0.0993s | worse |
 
 #### Resources
 
 | Fixture | Parse RSS | Syntax RSS | Parse CPU | Syntax CPU |
 | --- | ---: | ---: | ---: | ---: |
-| `e1ap_rel18.4_specs` | 3.77 MB | 4.16 MB | 0.0% | 0.0% |
-| `f1ap_rel18.6_specs` | 3.86 MB | 4.03 MB | 0.0% | 0.0% |
-| `ngap_rel18.6_specs` | 272 KB | 3.98 MB | 0.0% | 0.0% |
+| `e1ap_rel18.4_specs` | 6.72 MB | 6.72 MB | 0.0% | 0.0% |
+| `f1ap_rel18.6_specs` | 8.92 MB | 6.56 MB | 0.0% | 0.4% |
+| `ngap_rel18.6_specs` | 8.42 MB | 4.91 MB | 0.0% | 0.0% |
 <!-- BENCH_RESULTS_END -->
