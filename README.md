@@ -22,7 +22,7 @@ Benchmarking `voltcc` parser, syntaxcheck, and validator-adjacent phases across 
 ## Latest Results
 
 <!-- BENCH_RESULTS_START -->
-Generated: 2026-03-13T16:02:26.523318+00:00
+Generated: 2026-03-13T16:05:18.355397+00:00
 
 ### macos-aarch64
 
@@ -30,9 +30,9 @@ Generated: 2026-03-13T16:02:26.523318+00:00
 
 | Fixture | Syntaxcheck mean | Previous | Delta | Trend |
 | --- | ---: | ---: | ---: | --- |
-| `e1ap_rel18.4_specs` | 0.0206s | 0.0237s | -0.0031s | improved |
-| `f1ap_rel18.6_specs` | 0.0621s | 0.0703s | -0.0082s | improved |
-| `ngap_rel18.6_specs` | 0.0427s | 0.0488s | -0.0061s | improved |
+| `e1ap_rel18.4_specs` | 0.0225s | 0.0206s | +0.0019s | worse |
+| `f1ap_rel18.6_specs` | 0.0838s | 0.0621s | +0.0217s | worse |
+| `ngap_rel18.6_specs` | 0.0531s | 0.0427s | +0.0104s | worse |
 
 #### Resources
 
@@ -48,9 +48,9 @@ Generated: 2026-03-13T16:02:26.523318+00:00
 
 | Fixture | Syntaxcheck mean | Previous | Delta | Trend |
 | --- | ---: | ---: | ---: | --- |
-| `e1ap_rel18.4_specs` | 0.0401s | 0.0396s | +0.0005s | worse |
-| `f1ap_rel18.6_specs` | 0.1137s | 0.1111s | +0.0026s | worse |
-| `ngap_rel18.6_specs` | 0.0800s | 0.0786s | +0.0014s | worse |
+| `e1ap_rel18.4_specs` | 0.0419s | 0.0401s | +0.0018s | worse |
+| `f1ap_rel18.6_specs` | 0.1195s | 0.1137s | +0.0058s | worse |
+| `ngap_rel18.6_specs` | 0.0822s | 0.0800s | +0.0022s | worse |
 
 #### Resources
 
@@ -66,9 +66,9 @@ Generated: 2026-03-13T16:02:26.523318+00:00
 
 | Fixture | Syntaxcheck mean | Previous | Delta | Trend |
 | --- | ---: | ---: | ---: | --- |
-| `e1ap_rel18.4_specs` | 0.0431s | 0.0389s | +0.0042s | worse |
-| `f1ap_rel18.6_specs` | 0.1226s | 0.1114s | +0.0112s | worse |
-| `ngap_rel18.6_specs` | 0.0838s | 0.0772s | +0.0066s | worse |
+| `e1ap_rel18.4_specs` | 0.0389s | 0.0431s | -0.0042s | improved |
+| `f1ap_rel18.6_specs` | 0.1165s | 0.1226s | -0.0061s | improved |
+| `ngap_rel18.6_specs` | 0.0804s | 0.0838s | -0.0034s | improved |
 
 #### Resources
 
