@@ -5,11 +5,20 @@ source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/_runner_common.sh"
 cd "$repo_root"
 ensure_built_binary
 
+# Check if we're in CI (GitHub Actions)
+if [[ "${CI:-false}" == "true" || "${GITHUB_ACTIONS:-false}" == "true" ]]; then
+    # CI environment - use hyperfine
+    use_poop=false
+else
+    # Local development - prefer poop if available
+    use_poop=true
+fi
+
 if [[ "$(detect_host_os)" == "windows" ]]; then
-	if ! command -v hyperfine >/dev/null 2>&1; then
-		printf "error: hyperfine is not installed or not on PATH.\n" >&2
-		exit 1
-	fi
+    if ! command -v hyperfine >/dev/null 2>&1; then
+        printf "error: hyperfine is not installed or not on PATH.\n" >&2
+        exit 1
+    fi
 fi
 
 fixture_dirs=(
@@ -46,15 +55,24 @@ for fixture_dir in "${fixture_dirs[@]}"; do
 			--runs 5 \
 			"$parse_cmd" \
 			"$syntax_cmd"
-	elif [[ "$(detect_host_os)" == "linux" ]] && [[ -n "${POOP_BIN:-}" ]]; then
-		# Warmup run
-		"${VOLTCC_BIN}" --parse-only --no-warnings --dir "${fixture_path}" >/dev/null 2>&1 || true
-		"${VOLTCC_BIN}" --syntaxcheck --no-warnings --dir "${fixture_path}" >/dev/null 2>&1 || true
-		# Benchmark - use eval to properly expand the command
-		eval "${POOP_BIN}" "'${VOLTCC_BIN} --parse-only --no-warnings --dir ${fixture_path}'"
-		eval "${POOP_BIN}" "'${VOLTCC_BIN} --syntaxcheck --no-warnings --dir ${fixture_path}'"
+	elif [[ "$(detect_host_os)" == "linux" ]] && [[ "$use_poop" == "true" ]] && [[ -n "${POOP_BIN:-}" ]]; then
+		# Try poop first, fall back to hyperfine if it fails
+		if ! "${POOP_BIN}" -- "${VOLTCC_BIN}" --parse-only --no-warnings --dir "${fixture_path}" >/dev/null 2>&1; then
+			printf "poop failed, falling back to hyperfine...\n"
+			use_poop=false
+		fi
+		
+		if [[ "$use_poop" == "true" ]]; then
+			"${POOP_BIN}" -- "${VOLTCC_BIN}" --parse-only --no-warnings --dir "${fixture_path}"
+			"${POOP_BIN}" -- "${VOLTCC_BIN}" --syntaxcheck --no-warnings --dir "${fixture_path}"
+		else
+			# Fallback to hyperfine
+			parse_cmd="$(shell_join "$VOLTCC_BIN" --parse-only --no-warnings --dir "$fixture_path") >/dev/null 2>&1"
+			syntax_cmd="$(shell_join "$VOLTCC_BIN" --syntaxcheck --no-warnings --dir "$fixture_path") >/dev/null 2>&1"
+			hyperfine --warmup 1 --runs 5 "$parse_cmd" "$syntax_cmd"
+		fi
 	else
-		# macOS or no poop - use hyperfine
+		# macOS or CI - use hyperfine
 		if ! command -v hyperfine >/dev/null 2>&1; then
 			printf "error: hyperfine is not installed or not on PATH.\n" >&2
 			exit 1
