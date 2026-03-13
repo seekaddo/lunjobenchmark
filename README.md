@@ -22,7 +22,7 @@ Benchmarking `voltcc` parser, syntaxcheck, and validator-adjacent phases across 
 ## Latest Results
 
 <!-- BENCH_RESULTS_START -->
-Generated: 2026-03-13T16:08:44.124534+00:00
+Generated: 2026-03-13T16:44:27.205424+00:00
 
 ### linux-aarch64
 
@@ -30,9 +30,9 @@ Generated: 2026-03-13T16:08:44.124534+00:00
 
 | Fixture | Syntaxcheck mean | Previous | Delta | Trend |
 | --- | ---: | ---: | ---: | --- |
-| `e1ap_rel18.4_specs` | 0.0388s | 0.0393s | -0.0005s | improved |
-| `f1ap_rel18.6_specs` | 0.1225s | 0.1253s | -0.0028s | improved |
-| `ngap_rel18.6_specs` | 0.0856s | 0.0861s | -0.0005s | improved |
+| `e1ap_rel18.4_specs` | 0.0394s | 0.0388s | +0.0006s | worse |
+| `f1ap_rel18.6_specs` | 0.1226s | 0.1225s | +0.0001s | worse |
+| `ngap_rel18.6_specs` | 0.0849s | 0.0856s | -0.0007s | improved |
 
 #### Resources
 
@@ -48,9 +48,9 @@ Generated: 2026-03-13T16:08:44.124534+00:00
 
 | Fixture | Syntaxcheck mean | Previous | Delta | Trend |
 | --- | ---: | ---: | ---: | --- |
-| `e1ap_rel18.4_specs` | 0.0389s | 0.0368s | +0.0021s | worse |
-| `f1ap_rel18.6_specs` | 0.1016s | 0.1020s | -0.0004s | improved |
-| `ngap_rel18.6_specs` | 0.0724s | 0.0701s | +0.0023s | worse |
+| `e1ap_rel18.4_specs` | 0.0387s | 0.0389s | -0.0002s | improved |
+| `f1ap_rel18.6_specs` | 0.1037s | 0.1016s | +0.0021s | worse |
+| `ngap_rel18.6_specs` | 0.0740s | 0.0724s | +0.0016s | worse |
 
 #### Resources
 
@@ -66,9 +66,9 @@ Generated: 2026-03-13T16:08:44.124534+00:00
 
 | Fixture | Syntaxcheck mean | Previous | Delta | Trend |
 | --- | ---: | ---: | ---: | --- |
-| `e1ap_rel18.4_specs` | 0.0357s | 0.0361s | -0.0004s | improved |
-| `f1ap_rel18.6_specs` | 0.0963s | 0.0941s | +0.0022s | worse |
-| `ngap_rel18.6_specs` | 0.0677s | 0.0667s | +0.0010s | worse |
+| `e1ap_rel18.4_specs` | 0.0355s | 0.0357s | -0.0002s | improved |
+| `f1ap_rel18.6_specs` | 0.0929s | 0.0963s | -0.0034s | improved |
+| `ngap_rel18.6_specs` | 0.0659s | 0.0677s | -0.0018s | improved |
 
 #### Resources
 
@@ -84,9 +84,9 @@ Generated: 2026-03-13T16:08:44.124534+00:00
 
 | Fixture | Syntaxcheck mean | Previous | Delta | Trend |
 | --- | ---: | ---: | ---: | --- |
-| `e1ap_rel18.4_specs` | 0.0223s | 0.0225s | -0.0002s | improved |
-| `f1ap_rel18.6_specs` | 0.0725s | 0.0838s | -0.0113s | improved |
-| `ngap_rel18.6_specs` | 0.0525s | 0.0531s | -0.0006s | improved |
+| `e1ap_rel18.4_specs` | 0.0250s | 0.0223s | +0.0027s | worse |
+| `f1ap_rel18.6_specs` | 0.0715s | 0.0725s | -0.0010s | improved |
+| `ngap_rel18.6_specs` | 0.0464s | 0.0525s | -0.0061s | improved |
 
 #### Resources
 
@@ -102,9 +102,9 @@ Generated: 2026-03-13T16:08:44.124534+00:00
 
 | Fixture | Syntaxcheck mean | Previous | Delta | Trend |
 | --- | ---: | ---: | ---: | --- |
-| `e1ap_rel18.4_specs` | 0.0422s | 0.0419s | +0.0003s | worse |
-| `f1ap_rel18.6_specs` | 0.1184s | 0.1195s | -0.0011s | improved |
-| `ngap_rel18.6_specs` | 0.0831s | 0.0822s | +0.0009s | worse |
+| `e1ap_rel18.4_specs` | 0.0406s | 0.0422s | -0.0016s | improved |
+| `f1ap_rel18.6_specs` | 0.1130s | 0.1184s | -0.0054s | improved |
+| `ngap_rel18.6_specs` | 0.0803s | 0.0831s | -0.0028s | improved |
 
 #### Resources
 
@@ -120,9 +120,9 @@ Generated: 2026-03-13T16:08:44.124534+00:00
 
 | Fixture | Syntaxcheck mean | Previous | Delta | Trend |
 | --- | ---: | ---: | ---: | --- |
-| `e1ap_rel18.4_specs` | 0.0390s | 0.0389s | +0.0001s | worse |
-| `f1ap_rel18.6_specs` | 0.1160s | 0.1165s | -0.0005s | improved |
-| `ngap_rel18.6_specs` | 0.0803s | 0.0804s | -0.0001s | improved |
+| `e1ap_rel18.4_specs` | 0.0387s | 0.0390s | -0.0003s | improved |
+| `f1ap_rel18.6_specs` | 0.1158s | 0.1160s | -0.0002s | improved |
+| `ngap_rel18.6_specs` | 0.0802s | 0.0803s | -0.0001s | improved |
 
 #### Resources
 
