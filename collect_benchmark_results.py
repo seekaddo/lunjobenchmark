@@ -182,12 +182,12 @@ def parse_resources_log(path: Path) -> dict:
             {
                 "fixture": current_fixture,
                 "parse_only": {
-                    "peak_cpu_pct": current_data.get("parse_cpu"),
-                    "peak_rss_kb": current_data.get("parse_rss"),
+                    "peak_cpu_pct": current_data.get("parse_only_cpu"),
+                    "peak_rss_kb": current_data.get("parse_only_rss"),
                 },
                 "syntaxcheck": {
-                    "peak_cpu_pct": current_data.get("syntax_cpu"),
-                    "peak_rss_kb": current_data.get("syntax_rss"),
+                    "peak_cpu_pct": current_data.get("syntaxcheck_cpu"),
+                    "peak_rss_kb": current_data.get("syntaxcheck_rss"),
                 },
             }
         )
