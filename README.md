@@ -22,5 +22,59 @@ Benchmarking `voltcc` parser, syntaxcheck, and validator-adjacent phases across 
 ## Latest Results
 
 <!-- BENCH_RESULTS_START -->
-Benchmark results will appear here after the first run.
+Generated: 2026-03-13T16:02:26.523318+00:00
+
+### macos-aarch64
+
+#### Timing
+
+| Fixture | Syntaxcheck mean | Previous | Delta | Trend |
+| --- | ---: | ---: | ---: | --- |
+| `e1ap_rel18.4_specs` | 0.0206s | 0.0237s | -0.0031s | improved |
+| `f1ap_rel18.6_specs` | 0.0621s | 0.0703s | -0.0082s | improved |
+| `ngap_rel18.6_specs` | 0.0427s | 0.0488s | -0.0061s | improved |
+
+#### Resources
+
+| Fixture | Parse RSS | Syntax RSS | Parse CPU | Syntax CPU |
+| --- | ---: | ---: | ---: | ---: |
+| `e1ap_rel18.4_specs` | n/a | n/a | n/a | n/a |
+| `f1ap_rel18.6_specs` | n/a | n/a | n/a | n/a |
+| `ngap_rel18.6_specs` | n/a | n/a | n/a | n/a |
+
+### windows-i386
+
+#### Timing
+
+| Fixture | Syntaxcheck mean | Previous | Delta | Trend |
+| --- | ---: | ---: | ---: | --- |
+| `e1ap_rel18.4_specs` | 0.0401s | 0.0396s | +0.0005s | worse |
+| `f1ap_rel18.6_specs` | 0.1137s | 0.1111s | +0.0026s | worse |
+| `ngap_rel18.6_specs` | 0.0800s | 0.0786s | +0.0014s | worse |
+
+#### Resources
+
+| Fixture | Parse RSS | Syntax RSS | Parse CPU | Syntax CPU |
+| --- | ---: | ---: | ---: | ---: |
+| `e1ap_rel18.4_specs` | n/a | n/a | n/a | n/a |
+| `f1ap_rel18.6_specs` | n/a | n/a | n/a | n/a |
+| `ngap_rel18.6_specs` | n/a | n/a | n/a | n/a |
+
+### windows-x86_64
+
+#### Timing
+
+| Fixture | Syntaxcheck mean | Previous | Delta | Trend |
+| --- | ---: | ---: | ---: | --- |
+| `e1ap_rel18.4_specs` | 0.0431s | 0.0389s | +0.0042s | worse |
+| `f1ap_rel18.6_specs` | 0.1226s | 0.1114s | +0.0112s | worse |
+| `ngap_rel18.6_specs` | 0.0838s | 0.0772s | +0.0066s | worse |
+
+#### Resources
+
+| Fixture | Parse RSS | Syntax RSS | Parse CPU | Syntax CPU |
+| --- | ---: | ---: | ---: | ---: |
+| `e1ap_rel18.4_specs` | n/a | n/a | n/a | n/a |
+| `f1ap_rel18.6_specs` | n/a | n/a | n/a | n/a |
+| `ngap_rel18.6_specs` | n/a | n/a | n/a | n/a |
 <!-- BENCH_RESULTS_END -->
