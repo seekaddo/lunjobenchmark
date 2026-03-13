@@ -15,6 +15,11 @@ PHASE_TIME_RE = re.compile(
     re.IGNORECASE,
 )
 PHASE_ABS_RE = re.compile(r"Time \(abs ≡\):\s+([0-9.]+)\s+([a-zµ]+)", re.IGNORECASE)
+
+# Poop output patterns
+POOP_BENCHMARK_RE = re.compile(r"Benchmark \d+ \((\d+) runs\):")
+POOP_WALL_TIME_RE = re.compile(r"wall_time\s+([0-9.]+)([a-zµ]+)\s+±\s+([0-9.]+)([a-zµ]+)")
+
 RESOURCE_RE = re.compile(
     r"^\s*(parse-only|syntaxcheck)\s+.*(?:peak cpu|cpu)=([^%]+)%\s+(?:peak rss|max rss)=([0-9.]+)\s+(KB|MB|GB)",
     re.IGNORECASE,
@@ -88,6 +93,8 @@ def parse_phases_log(path: Path, runs: int) -> dict:
     fixtures: list[dict] = []
     current_fixture: str | None = None
     timings: list[tuple[float, float]] = []
+    is_poop_output = False
+    poop_runs = 0
 
     def flush() -> None:
         nonlocal current_fixture, timings
@@ -100,7 +107,7 @@ def parse_phases_log(path: Path, runs: int) -> dict:
         fixtures.append(
             {
                 "fixture": current_fixture,
-                "runs": runs,
+                "runs": poop_runs if is_poop_output else runs,
                 "parse_only": {
                     "mean_sec": parse_mean,
                     "stddev_sec": parse_stddev,
@@ -117,7 +124,34 @@ def parse_phases_log(path: Path, runs: int) -> dict:
         current_fixture = None
         timings = []
 
-    for raw_line in path.read_text(encoding="utf-8").splitlines():
+    content = path.read_text(encoding="utf-8")
+    
+    # Check if this is poop output
+    if "Benchmark" in content and "wall_time" in content:
+        is_poop_output = True
+        # Parse poop output
+        for raw_line in content.splitlines():
+            if raw_line.startswith("==> "):
+                flush()
+                current_fixture = clean_fixture(raw_line[4:])
+                continue
+            # Match poop benchmark header to get run count
+            match = POOP_BENCHMARK_RE.search(raw_line)
+            if match:
+                poop_runs = int(match.group(1))
+                continue
+            # Match poop wall_time line
+            match = POOP_WALL_TIME_RE.search(raw_line)
+            if match:
+                mean_val = to_seconds(match.group(1), match.group(2))
+                stddev_val = to_seconds(match.group(3), match.group(4))
+                timings.append((mean_val, stddev_val))
+                continue
+        flush()
+        return {"suite": "realworld_phases", "fixtures": fixtures}
+
+    # Original hyperfine parsing
+    for raw_line in content.splitlines():
         if raw_line.startswith("==> "):
             flush()
             current_fixture = clean_fixture(raw_line[4:])
@@ -137,33 +171,42 @@ def parse_phases_log(path: Path, runs: int) -> dict:
 def parse_resources_log(path: Path) -> dict:
     fixtures: list[dict] = []
     current_fixture: str | None = None
-    current_entry: dict | None = None
+    current_mode: str | None = None
+    current_data: dict = {}
 
     def flush() -> None:
-        nonlocal current_fixture, current_entry
-        if current_fixture is None or current_entry is None:
-            current_fixture = None
-            current_entry = None
+        nonlocal current_fixture, current_mode, current_data
+        if current_fixture is None:
             return
-        current_entry["fixture"] = current_fixture
-        fixtures.append(current_entry)
+        fixtures.append(
+            {
+                "fixture": current_fixture,
+                "parse_only": {
+                    "peak_cpu_pct": current_data.get("parse_cpu"),
+                    "peak_rss_kb": current_data.get("parse_rss"),
+                },
+                "syntaxcheck": {
+                    "peak_cpu_pct": current_data.get("syntax_cpu"),
+                    "peak_rss_kb": current_data.get("syntax_rss"),
+                },
+            }
+        )
         current_fixture = None
-        current_entry = None
+        current_mode = None
+        current_data = {}
 
     for raw_line in path.read_text(encoding="utf-8").splitlines():
-        if raw_line.startswith("==> "):
+        if raw_line.startswith("==>"):
             flush()
             current_fixture = clean_fixture(raw_line[4:])
-            current_entry = {}
             continue
         match = RESOURCE_RE.search(raw_line)
-        if match and current_entry is not None:
-            label = match.group(1).replace("-", "_")
-            cpu_text = match.group(2).strip()
-            current_entry[label] = {
-                "peak_cpu_pct": None if cpu_text.lower() == "n/a" else float(cpu_text),
-                "peak_rss_kb": rss_to_kb(match.group(3), match.group(4)),
-            }
+        if match:
+            mode = match.group(1).lower().replace("-", "_")
+            cpu = float(match.group(2).strip())
+            rss = rss_to_kb(match.group(3), match.group(4))
+            current_data[f"{mode}_cpu"] = cpu
+            current_data[f"{mode}_rss"] = rss
     flush()
     return {"suite": "realworld_resources", "fixtures": fixtures}
 
@@ -175,16 +218,16 @@ def main() -> None:
     parser.add_argument("--syntax-log", required=True)
     parser.add_argument("--phases-log", required=True)
     parser.add_argument("--resources-log", required=True)
-    parser.add_argument("--phase-runs", type=int, required=True)
+    parser.add_argument("--phase-runs", type=int, default=5)
     parser.add_argument("--output-summary", required=True)
     args = parser.parse_args()
 
-    summary = {
-        "generated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
+    result = {
         "target": args.target,
-        "host_system": platform.system(),
-        "host_machine": platform.machine(),
         "binary": args.binary,
+        "generated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "host_machine": platform.machine(),
+        "host_system": platform.system(),
         "suites": {
             "syntaxcheck": parse_syntax_log(Path(args.syntax_log)),
             "realworld_phases": parse_phases_log(Path(args.phases_log), args.phase_runs),
@@ -192,7 +235,7 @@ def main() -> None:
         },
     }
 
-    write_json(Path(args.output_summary), summary)
+    write_json(Path(args.output_summary), result)
 
 
 if __name__ == "__main__":

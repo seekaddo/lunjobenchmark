@@ -5,12 +5,13 @@ source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/_runner_common.sh"
 cd "$repo_root"
 ensure_built_binary
 
-if ! command -v hyperfine >/dev/null 2>&1; then
-	printf "error: hyperfine is not installed or not on PATH.\n" >&2
-	exit 1
+if [[ "$(detect_host_os)" == "windows" ]]; then
+	if ! command -v hyperfine >/dev/null 2>&1; then
+		printf "error: hyperfine is not installed or not on PATH.\n" >&2
+		exit 1
+	fi
 fi
 
-runs=5
 fixture_dirs=(
 	"test_semantic/e1ap_rel18.4_specs"
 	"test_semantic/f1ap_rel18.6_specs"
@@ -42,15 +43,27 @@ for fixture_dir in "${fixture_dirs[@]}"; do
 		hyperfine \
 			--shell=none \
 			--warmup 1 \
-			--runs "$runs" \
+			--runs 5 \
 			"$parse_cmd" \
 			"$syntax_cmd"
+	elif [[ "$(detect_host_os)" == "linux" ]] && [[ -n "${POOP_BIN:-}" ]]; then
+		# Warmup run
+		"${VOLTCC_BIN}" --parse-only --no-warnings --dir "${fixture_path}" >/dev/null 2>&1 || true
+		"${VOLTCC_BIN}" --syntaxcheck --no-warnings --dir "${fixture_path}" >/dev/null 2>&1 || true
+		# Benchmark - use eval to properly expand the command
+		eval "${POOP_BIN}" "'${VOLTCC_BIN} --parse-only --no-warnings --dir ${fixture_path}'"
+		eval "${POOP_BIN}" "'${VOLTCC_BIN} --syntaxcheck --no-warnings --dir ${fixture_path}'"
 	else
+		# macOS or no poop - use hyperfine
+		if ! command -v hyperfine >/dev/null 2>&1; then
+			printf "error: hyperfine is not installed or not on PATH.\n" >&2
+			exit 1
+		fi
 		parse_cmd="$(shell_join "$VOLTCC_BIN" --parse-only --no-warnings --dir "$fixture_path") >/dev/null 2>&1"
 		syntax_cmd="$(shell_join "$VOLTCC_BIN" --syntaxcheck --no-warnings --dir "$fixture_path") >/dev/null 2>&1"
 		hyperfine \
 			--warmup 1 \
-			--runs "$runs" \
+			--runs 5 \
 			"$parse_cmd" \
 			"$syntax_cmd"
 	fi

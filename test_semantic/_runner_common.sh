@@ -14,6 +14,17 @@ detect_host_os() {
 	esac
 }
 
+detect_host_arch() {
+	local arch
+	arch="$(uname -m | tr '[:upper:]' '[:lower:]')"
+	case "$arch" in
+		x86_64) echo "x86_64" ;;
+		i386|i686) echo "x86" ;;
+		aarch64|arm64) echo "aarch64" ;;
+		*) echo "$arch" ;;
+	esac
+}
+
 normalize_path_for_voltcc() {
 	local path="$1"
 	if [[ "$(detect_host_os)" == "windows" ]] && command -v cygpath >/dev/null 2>&1; then
@@ -42,6 +53,10 @@ shell_join() {
 
 if [[ "$(detect_host_os)" == "windows" ]]; then
 	export VOLTCC_BIN="$(normalize_path_for_voltcc "${EXEC_DIR}/zig-out/bin/voltcc.exe")"
+elif [[ "$(detect_host_os)" == "linux" ]]; then
+	export VOLTCC_BIN="${EXEC_DIR}/zig-out/bin/voltcc"
+	arch="$(detect_host_arch)"
+	export POOP_BIN="${EXEC_DIR}/poop_bin/${arch}-linux-poop"
 else
 	export VOLTCC_BIN="${EXEC_DIR}/zig-out/bin/voltcc"
 fi
