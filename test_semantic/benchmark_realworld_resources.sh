@@ -12,6 +12,7 @@ fixture_dirs=(
 	"test_semantic/e1ap_rel18.4_specs"
 	"test_semantic/f1ap_rel18.6_specs"
 	"test_semantic/ngap_rel18.6_specs"
+	"test_semantic/lteNRRCC"
 )
 
 while [[ $# -gt 0 ]]; do

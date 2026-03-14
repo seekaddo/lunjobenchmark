@@ -25,6 +25,7 @@ fixture_dirs=(
 	"test_semantic/e1ap_rel18.4_specs"
 	"test_semantic/f1ap_rel18.6_specs"
 	"test_semantic/ngap_rel18.6_specs"
+	"test_semantic/lteNRRCC"
 )
 
 while [[ $# -gt 0 ]]; do
@@ -56,20 +57,19 @@ for fixture_dir in "${fixture_dirs[@]}"; do
 			"$parse_cmd" \
 			"$syntax_cmd"
 	elif [[ "$(detect_host_os)" == "linux" ]] && [[ "$use_poop" == "true" ]] && [[ -n "${POOP_BIN:-}" ]]; then
+		parse_cmd="$(shell_join "$VOLTCC_BIN" --parse-only --no-warnings --dir "$fixture_path")"
+		syntax_cmd="$(shell_join "$VOLTCC_BIN" --syntaxcheck --no-warnings --dir "$fixture_path")"
 		# Try poop first, fall back to hyperfine if it fails
-		if ! "${POOP_BIN}" -- "${VOLTCC_BIN}" --parse-only --no-warnings --dir "${fixture_path}" >/dev/null 2>&1; then
+		if ! "${POOP_BIN}" "$parse_cmd" "$syntax_cmd" >/dev/null 2>&1; then
 			printf "poop failed, falling back to hyperfine...\n"
 			use_poop=false
 		fi
 		
 		if [[ "$use_poop" == "true" ]]; then
-			"${POOP_BIN}" -- "${VOLTCC_BIN}" --parse-only --no-warnings --dir "${fixture_path}"
-			"${POOP_BIN}" -- "${VOLTCC_BIN}" --syntaxcheck --no-warnings --dir "${fixture_path}"
+			"${POOP_BIN}" "$parse_cmd" "$syntax_cmd"
 		else
 			# Fallback to hyperfine
-			parse_cmd="$(shell_join "$VOLTCC_BIN" --parse-only --no-warnings --dir "$fixture_path") >/dev/null 2>&1"
-			syntax_cmd="$(shell_join "$VOLTCC_BIN" --syntaxcheck --no-warnings --dir "$fixture_path") >/dev/null 2>&1"
-			hyperfine --warmup 1 --runs 5 "$parse_cmd" "$syntax_cmd"
+			hyperfine --warmup 1 --runs 5 "${parse_cmd} >/dev/null 2>&1" "${syntax_cmd} >/dev/null 2>&1"
 		fi
 	else
 		# macOS or CI - use hyperfine
