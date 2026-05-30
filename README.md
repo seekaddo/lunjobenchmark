@@ -22,7 +22,7 @@ Benchmarking `voltcc` parser, syntaxcheck, and validator-adjacent phases across 
 ## Latest Results
 
 <!-- BENCH_RESULTS_START -->
-Generated: 2026-05-29T23:20:23.258208+00:00
+Generated: 2026-05-30T11:27:08.145158+00:00
 
 ### linux-aarch64
 
@@ -30,19 +30,19 @@ Generated: 2026-05-29T23:20:23.258208+00:00
 
 | Fixture | Syntaxcheck mean | Previous | Delta | Trend |
 | --- | ---: | ---: | ---: | --- |
-| `e1ap_rel18.4_specs` | 0.0386s | 0.0364s | +0.0022s | worse |
-| `f1ap_rel18.6_specs` | 0.1146s | 0.1171s | -0.0025s | improved |
-| `ngap_rel18.6_specs` | 0.0792s | 0.0788s | +0.0004s | worse |
-| `lteNRRCC` | 0.1231s | 0.1253s | -0.0022s | improved |
+| `e1ap_rel18.4_specs` | 0.0363s | 0.0386s | -0.0023s | improved |
+| `f1ap_rel18.6_specs` | 0.1171s | 0.1146s | +0.0025s | worse |
+| `ngap_rel18.6_specs` | 0.0794s | 0.0792s | +0.0002s | worse |
+| `lteNRRCC` | 0.1234s | 0.1231s | +0.0003s | worse |
 
 #### Resources
 
 | Fixture | Parse RSS | Syntax RSS | Parse CPU | Syntax CPU |
 | --- | ---: | ---: | ---: | ---: |
-| `e1ap_rel18.4_specs` | 14.96 MB | 53.55 MB | 27.0% | 109.7% |
-| `f1ap_rel18.6_specs` | 32.68 MB | 161.93 MB | 106.2% | 104.3% |
+| `e1ap_rel18.4_specs` | 14.96 MB | 53.55 MB | 28.4% | 110.0% |
+| `f1ap_rel18.6_specs` | 32.68 MB | 161.93 MB | 106.2% | 102.8% |
 | `ngap_rel18.6_specs` | 22.43 MB | 115.55 MB | 111.5% | 103.8% |
-| `lteNRRCC` | 72.36 MB | 100.11 MB | 105.0% | 104.1% |
+| `lteNRRCC` | 72.35 MB | 100.11 MB | 103.2% | 104.0% |
 
 ### linux-i386
 
@@ -50,19 +50,19 @@ Generated: 2026-05-29T23:20:23.258208+00:00
 
 | Fixture | Syntaxcheck mean | Previous | Delta | Trend |
 | --- | ---: | ---: | ---: | --- |
-| `e1ap_rel18.4_specs` | 0.0358s | 0.0347s | +0.0011s | worse |
-| `f1ap_rel18.6_specs` | 0.0953s | 0.0935s | +0.0018s | worse |
-| `ngap_rel18.6_specs` | 0.0671s | 0.0654s | +0.0017s | worse |
-| `lteNRRCC` | 0.1283s | 0.1253s | +0.0030s | worse |
+| `e1ap_rel18.4_specs` | 0.0347s | 0.0358s | -0.0011s | improved |
+| `f1ap_rel18.6_specs` | 0.0955s | 0.0953s | +0.0002s | worse |
+| `ngap_rel18.6_specs` | 0.0672s | 0.0671s | +0.0001s | worse |
+| `lteNRRCC` | 0.1290s | 0.1283s | +0.0007s | worse |
 
 #### Resources
 
 | Fixture | Parse RSS | Syntax RSS | Parse CPU | Syntax CPU |
 | --- | ---: | ---: | ---: | ---: |
-| `e1ap_rel18.4_specs` | 17.41 MB | 36.54 MB | 86.2% | 113.8% |
-| `f1ap_rel18.6_specs` | 22.38 MB | 102.93 MB | 109.1% | 106.9% |
-| `ngap_rel18.6_specs` | 17.67 MB | 74.69 MB | 114.8% | 106.7% |
-| `lteNRRCC` | 47.90 MB | 66.32 MB | 104.8% | 104.1% |
+| `e1ap_rel18.4_specs` | 17.38 MB | 35.87 MB | 16.1% | 106.9% |
+| `f1ap_rel18.6_specs` | 22.30 MB | 103.18 MB | 109.1% | 105.2% |
+| `ngap_rel18.6_specs` | 17.65 MB | 74.68 MB | 111.1% | 104.4% |
+| `lteNRRCC` | 48.49 MB | 66.09 MB | 102.9% | 103.9% |
 
 ### linux-x86_64
 
@@ -70,19 +70,19 @@ Generated: 2026-05-29T23:20:23.258208+00:00
 
 | Fixture | Syntaxcheck mean | Previous | Delta | Trend |
 | --- | ---: | ---: | ---: | --- |
-| `e1ap_rel18.4_specs` | 0.0361s | 0.0364s | -0.0003s | improved |
-| `f1ap_rel18.6_specs` | 0.1051s | 0.0961s | +0.0090s | worse |
-| `ngap_rel18.6_specs` | 0.0659s | 0.0674s | -0.0015s | improved |
-| `lteNRRCC` | 0.1272s | 0.1292s | -0.0020s | improved |
+| `e1ap_rel18.4_specs` | 0.0350s | 0.0361s | -0.0011s | improved |
+| `f1ap_rel18.6_specs` | 0.0906s | 0.1051s | -0.0145s | improved |
+| `ngap_rel18.6_specs` | 0.0635s | 0.0659s | -0.0024s | improved |
+| `lteNRRCC` | 0.1171s | 0.1272s | -0.0101s | improved |
 
 #### Resources
 
 | Fixture | Parse RSS | Syntax RSS | Parse CPU | Syntax CPU |
 | --- | ---: | ---: | ---: | ---: |
-| `e1ap_rel18.4_specs` | 17.45 MB | 55.62 MB | 20.0% | 110.0% |
-| `f1ap_rel18.6_specs` | 34.68 MB | 164.71 MB | 109.4% | 105.1% |
-| `ngap_rel18.6_specs` | 24.54 MB | 117.68 MB | 111.1% | 106.8% |
-| `lteNRRCC` | 74.97 MB | 102.57 MB | 106.2% | 103.9% |
+| `e1ap_rel18.4_specs` | 17.45 MB | 55.73 MB | 82.1% | 110.7% |
+| `f1ap_rel18.6_specs` | 35.18 MB | 164.71 MB | 110.0% | 105.4% |
+| `ngap_rel18.6_specs` | 24.16 MB | 117.56 MB | 112.0% | 107.1% |
+| `lteNRRCC` | 74.59 MB | 102.97 MB | 105.1% | 104.3% |
 
 ### macos-aarch64
 
@@ -90,19 +90,19 @@ Generated: 2026-05-29T23:20:23.258208+00:00
 
 | Fixture | Syntaxcheck mean | Previous | Delta | Trend |
 | --- | ---: | ---: | ---: | --- |
-| `e1ap_rel18.4_specs` | 0.0340s | 0.0408s | -0.0068s | improved |
-| `f1ap_rel18.6_specs` | 0.0666s | 0.0673s | -0.0007s | improved |
-| `ngap_rel18.6_specs` | 0.0476s | 0.0380s | +0.0096s | worse |
-| `lteNRRCC` | 0.0843s | 0.0698s | +0.0145s | worse |
+| `e1ap_rel18.4_specs` | 0.0361s | 0.0340s | +0.0021s | worse |
+| `f1ap_rel18.6_specs` | 0.0710s | 0.0666s | +0.0044s | worse |
+| `ngap_rel18.6_specs` | 0.0490s | 0.0476s | +0.0014s | worse |
+| `lteNRRCC` | 0.0788s | 0.0843s | -0.0055s | improved |
 
 #### Resources
 
 | Fixture | Parse RSS | Syntax RSS | Parse CPU | Syntax CPU |
 | --- | ---: | ---: | ---: | ---: |
-| `e1ap_rel18.4_specs` | 8.23 MB | 8.16 MB | 0.0% | 0.0% |
-| `f1ap_rel18.6_specs` | 9.50 MB | 4.66 MB | 0.0% | 0.0% |
-| `ngap_rel18.6_specs` | 4.00 MB | 4.19 MB | 0.0% | 0.0% |
-| `lteNRRCC` | 4.25 MB | 4.08 MB | 0.0% | 0.0% |
+| `e1ap_rel18.4_specs` | 4.22 MB | 4.80 MB | 0.0% | 0.0% |
+| `f1ap_rel18.6_specs` | 7.86 MB | 9.25 MB | 0.0% | 0.9% |
+| `ngap_rel18.6_specs` | 8.22 MB | 8.19 MB | 0.0% | 0.0% |
+| `lteNRRCC` | 4.36 MB | 7.47 MB | 0.0% | 0.0% |
 
 ### windows-i386
 
@@ -110,19 +110,19 @@ Generated: 2026-05-29T23:20:23.258208+00:00
 
 | Fixture | Syntaxcheck mean | Previous | Delta | Trend |
 | --- | ---: | ---: | ---: | --- |
-| `e1ap_rel18.4_specs` | 0.0419s | 0.0406s | +0.0013s | worse |
-| `f1ap_rel18.6_specs` | 0.1071s | 0.1098s | -0.0027s | improved |
-| `ngap_rel18.6_specs` | 0.0752s | 0.0776s | -0.0024s | improved |
-| `lteNRRCC` | 0.1356s | 0.1394s | -0.0038s | improved |
+| `e1ap_rel18.4_specs` | 0.0401s | 0.0419s | -0.0018s | improved |
+| `f1ap_rel18.6_specs` | 0.1106s | 0.1071s | +0.0035s | worse |
+| `ngap_rel18.6_specs` | 0.0790s | 0.0752s | +0.0038s | worse |
+| `lteNRRCC` | 0.1290s | 0.1356s | -0.0066s | improved |
 
 #### Resources
 
 | Fixture | Parse RSS | Syntax RSS | Parse CPU | Syntax CPU |
 | --- | ---: | ---: | ---: | ---: |
-| `e1ap_rel18.4_specs` | 7.62 MB | 7.32 MB | 117.9% | 93.9% |
-| `f1ap_rel18.6_specs` | 8.04 MB | 7.97 MB | 103.3% | 83.0% |
-| `ngap_rel18.6_specs` | 7.54 MB | 7.98 MB | 90.7% | 227.3% |
-| `lteNRRCC` | 48.94 MB | 65.61 MB | 107.2% | 108.5% |
+| `e1ap_rel18.4_specs` | 8.12 MB | 8.16 MB | 119.0% | 102.4% |
+| `f1ap_rel18.6_specs` | 8.56 MB | 8.68 MB | 199.6% | 227.5% |
+| `ngap_rel18.6_specs` | 8.12 MB | 8.13 MB | 116.7% | 169.8% |
+| `lteNRRCC` | 9.13 MB | 8.55 MB | 192.5% | 232.4% |
 
 ### windows-x86_64
 
@@ -130,17 +130,17 @@ Generated: 2026-05-29T23:20:23.258208+00:00
 
 | Fixture | Syntaxcheck mean | Previous | Delta | Trend |
 | --- | ---: | ---: | ---: | --- |
-| `e1ap_rel18.4_specs` | 0.0408s | 0.0447s | -0.0039s | improved |
-| `f1ap_rel18.6_specs` | 0.1188s | 0.1319s | -0.0131s | improved |
-| `ngap_rel18.6_specs` | 0.0801s | 0.0904s | -0.0103s | improved |
-| `lteNRRCC` | 0.1366s | 0.1462s | -0.0096s | improved |
+| `e1ap_rel18.4_specs` | 0.0440s | 0.0408s | +0.0032s | worse |
+| `f1ap_rel18.6_specs` | 0.1241s | 0.1188s | +0.0053s | worse |
+| `ngap_rel18.6_specs` | 0.0864s | 0.0801s | +0.0063s | worse |
+| `lteNRRCC` | 0.1402s | 0.1366s | +0.0036s | worse |
 
 #### Resources
 
 | Fixture | Parse RSS | Syntax RSS | Parse CPU | Syntax CPU |
 | --- | ---: | ---: | ---: | ---: |
-| `e1ap_rel18.4_specs` | 10.14 MB | 9.01 MB | 110.6% | 179.2% |
-| `f1ap_rel18.6_specs` | 11.26 MB | 162.23 MB | 110.9% | 165.2% |
-| `ngap_rel18.6_specs` | 10.56 MB | 9.38 MB | 226.6% | 161.8% |
-| `lteNRRCC` | 8.87 MB | 75.14 MB | 163.6% | 104.5% |
+| `e1ap_rel18.4_specs` | 9.32 MB | 9.64 MB | 163.6% | 159.7% |
+| `f1ap_rel18.6_specs` | 10.15 MB | 164.19 MB | 157.5% | 157.8% |
+| `ngap_rel18.6_specs` | 9.33 MB | 9.41 MB | 159.2% | 160.1% |
+| `lteNRRCC` | 73.77 MB | 99.76 MB | 158.9% | 156.7% |
 <!-- BENCH_RESULTS_END -->
