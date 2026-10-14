@@ -1,16 +1,16 @@
 ==> test_semantic/x681_x682_x683_protocol_ie_container.asn
-  run 1: elapsed=0.005457 sec user=0.000000 sys=0.015625 cpu=286.3% rss=4548 KB
-  run 2: elapsed=0.003339 sec user=0.000000 sys=0.000000 cpu=0.0% rss=4332 KB
-  run 3: elapsed=0.003402 sec user=0.015625 sys=0.000000 cpu=459.3% rss=4336 KB
+  run 1: elapsed=0.005190 sec user=0.000000 sys=0.000000 cpu=0.0% rss=4540 KB
+  run 2: elapsed=0.003562 sec user=0.000000 sys=0.000000 cpu=0.0% rss=4328 KB
+  run 3: elapsed=0.003671 sec user=0.000000 sys=0.000000 cpu=0.0% rss=4324 KB
 ==> test_semantic/lteNRRCC
-  run 1: elapsed=0.126913 sec user=0.109375 sys=0.015625 cpu=98.5% rss=104128 KB
-  run 2: elapsed=0.126169 sec user=0.125000 sys=0.000000 cpu=99.1% rss=104140 KB
-  run 3: elapsed=0.126548 sec user=0.125000 sys=0.000000 cpu=98.8% rss=104140 KB
+  run 1: elapsed=0.134779 sec user=0.125000 sys=0.000000 cpu=92.7% rss=104132 KB
+  run 2: elapsed=0.129485 sec user=0.109375 sys=0.015625 cpu=96.5% rss=104132 KB
+  run 3: elapsed=0.129506 sec user=0.109375 sys=0.015625 cpu=96.5% rss=104128 KB
 ==> test_semantic/e1ap_rel18.4_specs
-  run 1: elapsed=0.037872 sec user=0.031250 sys=0.000000 cpu=82.5% rss=56944 KB
-  run 2: elapsed=0.037814 sec user=0.031250 sys=0.000000 cpu=82.6% rss=56944 KB
-  run 3: elapsed=0.038621 sec user=0.031250 sys=0.015625 cpu=121.4% rss=56944 KB
+  run 1: elapsed=0.039530 sec user=0.031250 sys=0.000000 cpu=79.1% rss=56936 KB
+  run 2: elapsed=0.037289 sec user=0.000000 sys=0.046875 cpu=125.7% rss=56936 KB
+  run 3: elapsed=0.036717 sec user=0.031250 sys=0.015625 cpu=127.7% rss=56936 KB
 ==> test_semantic/f1ap_rel18.6_specs
-  run 1: elapsed=0.109680 sec user=0.062500 sys=0.046875 cpu=99.7% rss=168120 KB
-  run 2: elapsed=0.112169 sec user=0.093750 sys=0.015625 cpu=97.5% rss=168120 KB
-  run 3: elapsed=0.110320 sec user=0.046875 sys=0.062500 cpu=99.1% rss=168120 KB
+  run 1: elapsed=0.110586 sec user=0.109375 sys=0.000000 cpu=98.9% rss=168112 KB
+  run 2: elapsed=0.111036 sec user=0.093750 sys=0.015625 cpu=98.5% rss=168112 KB
+  run 3: elapsed=0.129864 sec user=0.125000 sys=0.015625 cpu=108.3% rss=168112 KB
