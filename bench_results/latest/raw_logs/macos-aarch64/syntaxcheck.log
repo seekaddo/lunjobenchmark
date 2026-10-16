@@ -1,16 +1,16 @@
 ==> test_semantic/x681_x682_x683_protocol_ie_container.asn
-  run 1: elapsed=0.004347 sec user=0.000971 sys=0.002412 cpu=77.8% rss=4079616 KB
-  run 2: elapsed=0.002931 sec user=0.000996 sys=0.001023 cpu=68.9% rss=4079616 KB
-  run 3: elapsed=0.003020 sec user=0.001017 sys=0.001095 cpu=69.9% rss=4079616 KB
+  run 1: elapsed=0.003533 sec user=0.000806 sys=0.001966 cpu=78.5% rss=4079616 KB
+  run 2: elapsed=0.002727 sec user=0.001010 sys=0.000847 cpu=68.1% rss=4079616 KB
+  run 3: elapsed=0.002640 sec user=0.000972 sys=0.000871 cpu=69.8% rss=4079616 KB
 ==> test_semantic/lteNRRCC
-  run 1: elapsed=0.101782 sec user=0.072172 sys=0.013320 cpu=84.0% rss=106708992 KB
-  run 2: elapsed=0.122076 sec user=0.095825 sys=0.022407 cpu=96.9% rss=106708992 KB
-  run 3: elapsed=0.116986 sec user=0.099379 sys=0.015790 cpu=98.4% rss=106708992 KB
+  run 1: elapsed=0.101412 sec user=0.065420 sys=0.009375 cpu=73.8% rss=106708992 KB
+  run 2: elapsed=0.092919 sec user=0.069275 sys=0.022525 cpu=98.8% rss=106708992 KB
+  run 3: elapsed=0.079460 sec user=0.069681 sys=0.008691 cpu=98.6% rss=106708992 KB
 ==> test_semantic/e1ap_rel18.4_specs
-  run 1: elapsed=0.050720 sec user=0.023075 sys=0.007722 cpu=60.7% rss=57901056 KB
-  run 2: elapsed=0.033190 sec user=0.023774 sys=0.007988 cpu=95.7% rss=57901056 KB
-  run 3: elapsed=0.029821 sec user=0.020489 sys=0.006165 cpu=89.4% rss=57901056 KB
+  run 1: elapsed=0.020773 sec user=0.015723 sys=0.004226 cpu=96.0% rss=57901056 KB
+  run 2: elapsed=0.022601 sec user=0.017037 sys=0.004626 cpu=95.9% rss=57901056 KB
+  run 3: elapsed=0.023522 sec user=0.016014 sys=0.004555 cpu=87.4% rss=57901056 KB
 ==> test_semantic/f1ap_rel18.6_specs
-  run 1: elapsed=0.163965 sec user=0.059560 sys=0.053862 cpu=69.2% rss=171573248 KB
-  run 2: elapsed=0.081750 sec user=0.054674 sys=0.025655 cpu=98.3% rss=171573248 KB
-  run 3: elapsed=0.071802 sec user=0.054025 sys=0.014897 cpu=96.0% rss=171573248 KB
+  run 1: elapsed=0.085165 sec user=0.050185 sys=0.012968 cpu=74.2% rss=171573248 KB
+  run 2: elapsed=0.074511 sec user=0.054907 sys=0.016436 cpu=95.7% rss=171573248 KB
+  run 3: elapsed=0.120118 sec user=0.057070 sys=0.015022 cpu=60.0% rss=171573248 KB
