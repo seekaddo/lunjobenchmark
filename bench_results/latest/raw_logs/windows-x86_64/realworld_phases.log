@@ -3,53 +3,53 @@ Note: there is no --validate-only mode yet, so validator cost is approximated by
 
 ==> test_semantic/e1ap_rel18.4_specs
 Benchmark 1: D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --parse-only --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/e1ap_rel18.4_specs
-  Time (mean ± σ):      19.4 ms ±   0.4 ms    [User: 12.5 ms, System: 3.1 ms]
-  Range (min … max):    18.9 ms …  19.8 ms    5 runs
+  Time (mean ± σ):      19.0 ms ±   0.3 ms    [User: 12.5 ms, System: 6.2 ms]
+  Range (min … max):    18.7 ms …  19.4 ms    5 runs
  
 Benchmark 2: D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --syntaxcheck --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/e1ap_rel18.4_specs
-  Time (mean ± σ):      40.7 ms ±   0.6 ms    [User: 31.2 ms, System: 12.5 ms]
-  Range (min … max):    39.8 ms …  41.3 ms    5 runs
+  Time (mean ± σ):      40.3 ms ±   0.7 ms    [User: 31.2 ms, System: 9.4 ms]
+  Range (min … max):    39.4 ms …  41.0 ms    5 runs
  
 Summary
   D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --parse-only --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/e1ap_rel18.4_specs ran
-    2.10 ± 0.05 times faster than D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --syntaxcheck --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/e1ap_rel18.4_specs
+    2.11 ± 0.05 times faster than D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --syntaxcheck --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/e1ap_rel18.4_specs
 
 ==> test_semantic/f1ap_rel18.6_specs
 Benchmark 1: D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --parse-only --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/f1ap_rel18.6_specs
-  Time (mean ± σ):      44.9 ms ±   0.5 ms    [User: 34.4 ms, System: 9.4 ms]
-  Range (min … max):    44.2 ms …  45.5 ms    5 runs
+  Time (mean ± σ):      43.2 ms ±   0.6 ms    [User: 37.5 ms, System: 6.2 ms]
+  Range (min … max):    42.4 ms …  43.9 ms    5 runs
  
 Benchmark 2: D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --syntaxcheck --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/f1ap_rel18.6_specs
-  Time (mean ± σ):     119.9 ms ±   0.8 ms    [User: 96.9 ms, System: 21.9 ms]
-  Range (min … max):   118.7 ms … 120.7 ms    5 runs
+  Time (mean ± σ):     121.0 ms ±   9.5 ms    [User: 100.0 ms, System: 21.9 ms]
+  Range (min … max):   111.0 ms … 136.7 ms    5 runs
  
 Summary
   D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --parse-only --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/f1ap_rel18.6_specs ran
-    2.67 ± 0.03 times faster than D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --syntaxcheck --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/f1ap_rel18.6_specs
+    2.80 ± 0.22 times faster than D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --syntaxcheck --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/f1ap_rel18.6_specs
 
 ==> test_semantic/ngap_rel18.6_specs
 Benchmark 1: D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --parse-only --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/ngap_rel18.6_specs
-  Time (mean ± σ):      32.0 ms ±   0.2 ms    [User: 18.8 ms, System: 6.2 ms]
-  Range (min … max):    31.8 ms …  32.3 ms    5 runs
+  Time (mean ± σ):      32.4 ms ±   0.1 ms    [User: 18.8 ms, System: 12.5 ms]
+  Range (min … max):    32.3 ms …  32.5 ms    5 runs
  
 Benchmark 2: D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --syntaxcheck --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/ngap_rel18.6_specs
-  Time (mean ± σ):      83.9 ms ±   2.1 ms    [User: 65.6 ms, System: 18.8 ms]
-  Range (min … max):    80.6 ms …  86.2 ms    5 runs
+  Time (mean ± σ):      83.0 ms ±   0.9 ms    [User: 65.6 ms, System: 12.5 ms]
+  Range (min … max):    82.2 ms …  84.2 ms    5 runs
  
 Summary
   D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --parse-only --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/ngap_rel18.6_specs ran
-    2.62 ± 0.07 times faster than D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --syntaxcheck --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/ngap_rel18.6_specs
+    2.57 ± 0.03 times faster than D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --syntaxcheck --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/ngap_rel18.6_specs
 
 ==> test_semantic/lteNRRCC
 Benchmark 1: D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --parse-only --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/lteNRRCC
-  Time (mean ± σ):     103.2 ms ±   1.4 ms    [User: 90.6 ms, System: 15.6 ms]
-  Range (min … max):   101.2 ms … 105.2 ms    5 runs
+  Time (mean ± σ):     103.8 ms ±   1.8 ms    [User: 96.9 ms, System: 6.2 ms]
+  Range (min … max):   102.4 ms … 106.8 ms    5 runs
  
 Benchmark 2: D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --syntaxcheck --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/lteNRRCC
-  Time (mean ± σ):     134.1 ms ±   6.0 ms    [User: 115.6 ms, System: 15.6 ms]
-  Range (min … max):   128.6 ms … 143.3 ms    5 runs
+  Time (mean ± σ):     130.6 ms ±   3.3 ms    [User: 106.2 ms, System: 18.8 ms]
+  Range (min … max):   127.0 ms … 134.0 ms    5 runs
  
 Summary
   D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --parse-only --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/lteNRRCC ran
-    1.30 ± 0.06 times faster than D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --syntaxcheck --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/lteNRRCC
+    1.26 ± 0.04 times faster than D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc.exe --syntaxcheck --no-warnings --dir D:/a/lunjobenchmark/lunjobenchmark/test_semantic/lteNRRCC
 
