@@ -1,0 +1,55 @@
+Benchmarking parser-only and full syntaxcheck on real-world directories.
+Note: there is no --validate-only mode yet, so validator cost is approximated by comparing parse-only with syntaxcheck.
+
+==> test_semantic/e1ap_rel18.4_specs
+Benchmark 1: /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --parse-only --no-warnings --dir test_semantic/e1ap_rel18.4_specs >/dev/null 2>&1
+  Time (mean ± σ):      12.7 ms ±   2.7 ms    [User: 10.6 ms, System: 4.0 ms]
+  Range (min … max):    10.5 ms …  16.7 ms    5 runs
+ 
+Benchmark 2: /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/e1ap_rel18.4_specs >/dev/null 2>&1
+  Time (mean ± σ):      36.1 ms ±   9.3 ms    [User: 27.9 ms, System: 8.3 ms]
+  Range (min … max):    27.7 ms …  48.3 ms    5 runs
+ 
+Summary
+  /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --parse-only --no-warnings --dir test_semantic/e1ap_rel18.4_specs >/dev/null 2>&1 ran
+    2.84 ± 0.94 times faster than /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/e1ap_rel18.4_specs >/dev/null 2>&1
+
+==> test_semantic/f1ap_rel18.6_specs
+Benchmark 1: /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --parse-only --no-warnings --dir test_semantic/f1ap_rel18.6_specs >/dev/null 2>&1
+  Time (mean ± σ):      35.3 ms ±   7.6 ms    [User: 28.2 ms, System: 6.7 ms]
+  Range (min … max):    30.0 ms …  47.8 ms    5 runs
+ 
+Benchmark 2: /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/f1ap_rel18.6_specs >/dev/null 2>&1
+  Time (mean ± σ):     110.6 ms ±  26.8 ms    [User: 75.5 ms, System: 23.5 ms]
+  Range (min … max):    82.0 ms … 152.1 ms    5 runs
+ 
+Summary
+  /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --parse-only --no-warnings --dir test_semantic/f1ap_rel18.6_specs >/dev/null 2>&1 ran
+    3.13 ± 1.01 times faster than /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/f1ap_rel18.6_specs >/dev/null 2>&1
+
+==> test_semantic/ngap_rel18.6_specs
+Benchmark 1: /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --parse-only --no-warnings --dir test_semantic/ngap_rel18.6_specs >/dev/null 2>&1
+  Time (mean ± σ):      19.7 ms ±   1.4 ms    [User: 17.3 ms, System: 3.3 ms]
+  Range (min … max):    18.3 ms …  21.7 ms    5 runs
+ 
+Benchmark 2: /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/ngap_rel18.6_specs >/dev/null 2>&1
+  Time (mean ± σ):      53.7 ms ±  12.6 ms    [User: 39.1 ms, System: 10.3 ms]
+  Range (min … max):    45.9 ms …  76.0 ms    5 runs
+ 
+Summary
+  /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --parse-only --no-warnings --dir test_semantic/ngap_rel18.6_specs >/dev/null 2>&1 ran
+    2.72 ± 0.67 times faster than /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/ngap_rel18.6_specs >/dev/null 2>&1
+
+==> test_semantic/lteNRRCC
+Benchmark 1: /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --parse-only --no-warnings --dir test_semantic/lteNRRCC >/dev/null 2>&1
+  Time (mean ± σ):      77.1 ms ±  12.6 ms    [User: 74.2 ms, System: 10.0 ms]
+  Range (min … max):    64.0 ms …  92.7 ms    5 runs
+ 
+Benchmark 2: /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/lteNRRCC >/dev/null 2>&1
+  Time (mean ± σ):      86.8 ms ±   9.7 ms    [User: 85.8 ms, System: 13.1 ms]
+  Range (min … max):    77.4 ms … 102.8 ms    5 runs
+ 
+Summary
+  /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --parse-only --no-warnings --dir test_semantic/lteNRRCC >/dev/null 2>&1 ran
+    1.13 ± 0.22 times faster than /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/lteNRRCC >/dev/null 2>&1
+
