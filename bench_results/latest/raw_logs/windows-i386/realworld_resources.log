@@ -4,17 +4,17 @@ On other platforms, it samples peak CPU and RSS during the run window.
 
 ==> test_semantic/e1ap_rel18.4_specs
   parse-only   peak cpu=0.0% peak rss=11.30 MB
-  syntaxcheck  peak cpu=139.9% peak rss=7.93 MB
+  syntaxcheck  peak cpu=134.4% peak rss=7.94 MB
 
 ==> test_semantic/f1ap_rel18.6_specs
-  parse-only   peak cpu=123.0% peak rss=8.70 MB
-  syntaxcheck  peak cpu=121.9% peak rss=8.76 MB
+  parse-only   peak cpu=133.6% peak rss=8.55 MB
+  syntaxcheck  peak cpu=133.8% peak rss=106.61 MB
 
 ==> test_semantic/ngap_rel18.6_specs
-  parse-only   peak cpu=134.7% peak rss=8.32 MB
-  syntaxcheck  peak cpu=213.7% peak rss=8.26 MB
+  parse-only   peak cpu=133.6% peak rss=8.16 MB
+  syntaxcheck  peak cpu=133.4% peak rss=8.20 MB
 
 ==> test_semantic/lteNRRCC
-  parse-only   peak cpu=99.4% peak rss=8.44 MB
-  syntaxcheck  peak cpu=104.5% peak rss=51.95 MB
+  parse-only   peak cpu=195.5% peak rss=8.40 MB
+  syntaxcheck  peak cpu=134.2% peak rss=55.29 MB
 
