@@ -1,16 +1,16 @@
 ==> test_semantic/x681_x682_x683_protocol_ie_container.asn
-  run 1: elapsed=0.00 sec user=0.00 sys=0.00 cpu=93% rss=2332 KB
-  run 2: elapsed=0.00 sec user=0.00 sys=0.00 cpu=93% rss=2332 KB
-  run 3: elapsed=0.00 sec user=0.00 sys=0.00 cpu=94% rss=2332 KB
+  run 1: elapsed=0.00 sec user=0.00 sys=0.00 cpu=100% rss=2332 KB
+  run 2: elapsed=0.00 sec user=0.00 sys=0.00 cpu=0% rss=2332 KB
+  run 3: elapsed=0.00 sec user=0.00 sys=0.00 cpu=93% rss=2332 KB
 ==> test_semantic/lteNRRCC
-  run 1: elapsed=0.10 sec user=0.09 sys=0.00 cpu=99% rss=66708 KB
-  run 2: elapsed=0.09 sec user=0.08 sys=0.00 cpu=98% rss=66308 KB
-  run 3: elapsed=0.10 sec user=0.08 sys=0.01 cpu=99% rss=68100 KB
+  run 1: elapsed=0.13 sec user=0.12 sys=0.00 cpu=98% rss=67548 KB
+  run 2: elapsed=0.14 sec user=0.13 sys=0.00 cpu=100% rss=67108 KB
+  run 3: elapsed=0.13 sec user=0.11 sys=0.01 cpu=100% rss=66396 KB
 ==> test_semantic/e1ap_rel18.4_specs
-  run 1: elapsed=0.02 sec user=0.01 sys=0.00 cpu=100% rss=35660 KB
-  run 2: elapsed=0.02 sec user=0.01 sys=0.00 cpu=96% rss=36224 KB
-  run 3: elapsed=0.02 sec user=0.02 sys=0.00 cpu=96% rss=35836 KB
+  run 1: elapsed=0.03 sec user=0.02 sys=0.01 cpu=100% rss=36336 KB
+  run 2: elapsed=0.03 sec user=0.02 sys=0.00 cpu=100% rss=37076 KB
+  run 3: elapsed=0.03 sec user=0.02 sys=0.00 cpu=97% rss=36564 KB
 ==> test_semantic/f1ap_rel18.6_specs
-  run 1: elapsed=0.08 sec user=0.06 sys=0.01 cpu=97% rss=104684 KB
-  run 2: elapsed=0.07 sec user=0.05 sys=0.01 cpu=100% rss=105632 KB
-  run 3: elapsed=0.07 sec user=0.06 sys=0.00 cpu=98% rss=105536 KB
+  run 1: elapsed=0.09 sec user=0.07 sys=0.01 cpu=100% rss=104452 KB
+  run 2: elapsed=0.09 sec user=0.07 sys=0.01 cpu=100% rss=104300 KB
+  run 3: elapsed=0.09 sec user=0.08 sys=0.01 cpu=100% rss=105888 KB
