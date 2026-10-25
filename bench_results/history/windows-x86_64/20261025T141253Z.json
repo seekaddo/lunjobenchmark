@@ -1,0 +1,172 @@
+{
+  "binary": "D:/a/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc",
+  "generated_at_utc": "2026-10-25T14:12:39.610757+00:00",
+  "host_machine": "AMD64",
+  "host_system": "Windows",
+  "suites": {
+    "realworld_phases": {
+      "fixtures": [
+        {
+          "fixture": "e1ap_rel18.4_specs",
+          "parse_only": {
+            "mean_sec": 0.0175,
+            "measurements_sec": [],
+            "stddev_sec": 0.0001
+          },
+          "runs": 5,
+          "syntaxcheck": {
+            "mean_sec": 0.0373,
+            "measurements_sec": [],
+            "stddev_sec": 0.0009
+          },
+          "validator_overhead_sec": 0.019799999999999998
+        },
+        {
+          "fixture": "f1ap_rel18.6_specs",
+          "parse_only": {
+            "mean_sec": 0.0424,
+            "measurements_sec": [],
+            "stddev_sec": 0.0026
+          },
+          "runs": 5,
+          "syntaxcheck": {
+            "mean_sec": 0.11009999999999999,
+            "measurements_sec": [],
+            "stddev_sec": 0.0008
+          },
+          "validator_overhead_sec": 0.06769999999999998
+        },
+        {
+          "fixture": "ngap_rel18.6_specs",
+          "parse_only": {
+            "mean_sec": 0.030100000000000002,
+            "measurements_sec": [],
+            "stddev_sec": 0.0004
+          },
+          "runs": 5,
+          "syntaxcheck": {
+            "mean_sec": 0.0756,
+            "measurements_sec": [],
+            "stddev_sec": 0.0007
+          },
+          "validator_overhead_sec": 0.0455
+        },
+        {
+          "fixture": "lteNRRCC",
+          "parse_only": {
+            "mean_sec": 0.1004,
+            "measurements_sec": [],
+            "stddev_sec": 0.0027
+          },
+          "runs": 5,
+          "syntaxcheck": {
+            "mean_sec": 0.1264,
+            "measurements_sec": [],
+            "stddev_sec": 0.0006
+          },
+          "validator_overhead_sec": 0.02600000000000001
+        }
+      ],
+      "suite": "realworld_phases"
+    },
+    "realworld_resources": {
+      "fixtures": [
+        {
+          "fixture": "e1ap_rel18.4_specs",
+          "parse_only": {
+            "peak_cpu_pct": 110.6,
+            "peak_rss_kb": 11376
+          },
+          "syntaxcheck": {
+            "peak_cpu_pct": 110.7,
+            "peak_rss_kb": 10915
+          }
+        },
+        {
+          "fixture": "f1ap_rel18.6_specs",
+          "parse_only": {
+            "peak_cpu_pct": 115.4,
+            "peak_rss_kb": 11612
+          },
+          "syntaxcheck": {
+            "peak_cpu_pct": 116.3,
+            "peak_rss_kb": 11479
+          }
+        },
+        {
+          "fixture": "ngap_rel18.6_specs",
+          "parse_only": {
+            "peak_cpu_pct": 117.8,
+            "peak_rss_kb": 11212
+          },
+          "syntaxcheck": {
+            "peak_cpu_pct": 116.1,
+            "peak_rss_kb": 11079
+          }
+        },
+        {
+          "fixture": "lteNRRCC",
+          "parse_only": {
+            "peak_cpu_pct": 233.9,
+            "peak_rss_kb": 10106
+          },
+          "syntaxcheck": {
+            "peak_cpu_pct": 230.2,
+            "peak_rss_kb": 100997
+          }
+        }
+      ],
+      "suite": "realworld_resources"
+    },
+    "syntaxcheck": {
+      "suite": "syntaxcheck",
+      "targets": [
+        {
+          "fixture": "x681_x682_x683_protocol_ie_container.asn",
+          "kind": "file",
+          "mean_sec": 0.0037990000000000003,
+          "measurements_sec": [
+            0.005087,
+            0.003096,
+            0.003214
+          ],
+          "repeat": 3
+        },
+        {
+          "fixture": "lteNRRCC",
+          "kind": "dir",
+          "mean_sec": 0.12144100000000001,
+          "measurements_sec": [
+            0.120733,
+            0.119632,
+            0.123958
+          ],
+          "repeat": 3
+        },
+        {
+          "fixture": "e1ap_rel18.4_specs",
+          "kind": "dir",
+          "mean_sec": 0.03403866666666667,
+          "measurements_sec": [
+            0.034132,
+            0.033393,
+            0.034591
+          ],
+          "repeat": 3
+        },
+        {
+          "fixture": "f1ap_rel18.6_specs",
+          "kind": "dir",
+          "mean_sec": 0.10796499999999999,
+          "measurements_sec": [
+            0.106254,
+            0.108965,
+            0.108676
+          ],
+          "repeat": 3
+        }
+      ]
+    }
+  },
+  "target": "windows-x86_64"
+}
