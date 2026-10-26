@@ -3,18 +3,18 @@ On Linux, this uses GNU time for max RSS and average CPU over repeated runs.
 On other platforms, it samples peak CPU and RSS during the run window.
 
 ==> test_semantic/e1ap_rel18.4_specs
-  parse-only   cpu=56.0% max rss=17.60 MB repeats=5
-  syntaxcheck  cpu=105.9% max rss=36.63 MB repeats=5
+  parse-only   cpu=71.4% max rss=17.53 MB repeats=5
+  syntaxcheck  cpu=104.8% max rss=36.68 MB repeats=5
 
 ==> test_semantic/f1ap_rel18.6_specs
-  parse-only   cpu=105.3% max rss=21.71 MB repeats=5
-  syntaxcheck  cpu=105.6% max rss=103.09 MB repeats=5
+  parse-only   cpu=104.8% max rss=22.32 MB repeats=5
+  syntaxcheck  cpu=104.8% max rss=103.00 MB repeats=5
 
 ==> test_semantic/ngap_rel18.6_specs
-  parse-only   cpu=106.2% max rss=18.12 MB repeats=5
-  syntaxcheck  cpu=100.0% max rss=74.66 MB repeats=5
+  parse-only   cpu=105.6% max rss=18.15 MB repeats=5
+  syntaxcheck  cpu=100.0% max rss=74.54 MB repeats=5
 
 ==> test_semantic/lteNRRCC
-  parse-only   cpu=102.6% max rss=48.81 MB repeats=5
-  syntaxcheck  cpu=102.2% max rss=65.92 MB repeats=5
+  parse-only   cpu=100.0% max rss=48.76 MB repeats=5
+  syntaxcheck  cpu=104.1% max rss=65.20 MB repeats=5
 

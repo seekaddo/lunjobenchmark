@@ -1,0 +1,16 @@
+==> test_semantic/x681_x682_x683_protocol_ie_container.asn
+  run 1: elapsed=0.006256 sec user=0.001213 sys=0.003356 cpu=73.0% rss=4046848 KB
+  run 2: elapsed=0.006047 sec user=0.002094 sys=0.002629 cpu=78.1% rss=4046848 KB
+  run 3: elapsed=0.003714 sec user=0.001128 sys=0.001483 cpu=70.3% rss=4046848 KB
+==> test_semantic/lteNRRCC
+  run 1: elapsed=0.142994 sec user=0.090664 sys=0.028362 cpu=83.2% rss=106676224 KB
+  run 2: elapsed=0.130430 sec user=0.087682 sys=0.038472 cpu=96.7% rss=106676224 KB
+  run 3: elapsed=0.129235 sec user=0.100673 sys=0.020590 cpu=93.8% rss=106676224 KB
+==> test_semantic/e1ap_rel18.4_specs
+  run 1: elapsed=0.039935 sec user=0.024601 sys=0.013210 cpu=94.7% rss=57868288 KB
+  run 2: elapsed=0.037863 sec user=0.021977 sys=0.010575 cpu=86.0% rss=57868288 KB
+  run 3: elapsed=0.025967 sec user=0.018456 sys=0.006127 cpu=94.7% rss=57868288 KB
+==> test_semantic/f1ap_rel18.6_specs
+  run 1: elapsed=0.134326 sec user=0.080318 sys=0.041391 cpu=90.6% rss=171540480 KB
+  run 2: elapsed=0.149488 sec user=0.087660 sys=0.049002 cpu=91.4% rss=171540480 KB
+  run 3: elapsed=0.124952 sec user=0.076446 sys=0.044766 cpu=97.0% rss=171540480 KB
