@@ -3,53 +3,61 @@ Note: there is no --validate-only mode yet, so validator cost is approximated by
 
 ==> test_semantic/e1ap_rel18.4_specs
 Benchmark 1: /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --parse-only --no-warnings --dir test_semantic/e1ap_rel18.4_specs >/dev/null 2>&1
-  Time (mean ± σ):      13.5 ms ±   2.2 ms    [User: 10.5 ms, System: 2.8 ms]
-  Range (min … max):    11.2 ms …  16.3 ms    5 runs
+  Time (mean ± σ):      13.5 ms ±   9.0 ms    [User: 7.3 ms, System: 1.7 ms]
+  Range (min … max):     9.4 ms …  29.6 ms    5 runs
+ 
+  Warning: The first benchmarking run for this command was significantly slower than the rest (29.6 ms). This could be caused by (filesystem) caches that were not filled until after the first run. You are already using the '--warmup' option which helps to fill these caches before the actual benchmark. You can either try to increase the warmup count further or re-run this benchmark on a quiet system in case it was a random outlier. Alternatively, consider using the '--prepare' option to clear the caches before each timing run.
  
 Benchmark 2: /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/e1ap_rel18.4_specs >/dev/null 2>&1
-  Time (mean ± σ):      23.3 ms ±   3.1 ms    [User: 18.3 ms, System: 5.4 ms]
-  Range (min … max):    21.0 ms …  28.6 ms    5 runs
+  Time (mean ± σ):      21.7 ms ±   2.6 ms    [User: 15.2 ms, System: 4.6 ms]
+  Range (min … max):    19.6 ms …  24.6 ms    5 runs
  
 Summary
   /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --parse-only --no-warnings --dir test_semantic/e1ap_rel18.4_specs >/dev/null 2>&1 ran
-    1.73 ± 0.37 times faster than /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/e1ap_rel18.4_specs >/dev/null 2>&1
+    1.61 ± 1.10 times faster than /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/e1ap_rel18.4_specs >/dev/null 2>&1
 
 ==> test_semantic/f1ap_rel18.6_specs
 Benchmark 1: /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --parse-only --no-warnings --dir test_semantic/f1ap_rel18.6_specs >/dev/null 2>&1
-  Time (mean ± σ):      27.9 ms ±   3.4 ms    [User: 23.4 ms, System: 4.3 ms]
-  Range (min … max):    23.7 ms …  31.9 ms    5 runs
+  Time (mean ± σ):      30.8 ms ±  12.4 ms    [User: 19.4 ms, System: 3.1 ms]
+  Range (min … max):    21.8 ms …  46.9 ms    5 runs
+ 
+  Warning: The first benchmarking run for this command was significantly slower than the rest (41.6 ms). This could be caused by (filesystem) caches that were not filled until after the first run. You are already using the '--warmup' option which helps to fill these caches before the actual benchmark. You can either try to increase the warmup count further or re-run this benchmark on a quiet system in case it was a random outlier. Alternatively, consider using the '--prepare' option to clear the caches before each timing run.
  
 Benchmark 2: /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/f1ap_rel18.6_specs >/dev/null 2>&1
-  Time (mean ± σ):      97.4 ms ±   9.2 ms    [User: 66.9 ms, System: 26.7 ms]
-  Range (min … max):    87.2 ms … 106.8 ms    5 runs
+  Time (mean ± σ):      77.2 ms ±  11.7 ms    [User: 49.8 ms, System: 12.0 ms]
+  Range (min … max):    61.4 ms …  92.9 ms    5 runs
  
 Summary
   /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --parse-only --no-warnings --dir test_semantic/f1ap_rel18.6_specs >/dev/null 2>&1 ran
-    3.49 ± 0.54 times faster than /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/f1ap_rel18.6_specs >/dev/null 2>&1
+    2.50 ± 1.08 times faster than /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/f1ap_rel18.6_specs >/dev/null 2>&1
 
 ==> test_semantic/ngap_rel18.6_specs
 Benchmark 1: /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --parse-only --no-warnings --dir test_semantic/ngap_rel18.6_specs >/dev/null 2>&1
-  Time (mean ± σ):      19.6 ms ±   1.2 ms    [User: 16.0 ms, System: 3.2 ms]
-  Range (min … max):    17.9 ms …  20.8 ms    5 runs
+  Time (mean ± σ):      20.7 ms ±  11.4 ms    [User: 13.7 ms, System: 2.4 ms]
+  Range (min … max):    15.5 ms …  41.0 ms    5 runs
+ 
+  Warning: Statistical outliers were detected. Consider re-running this benchmark on a quiet system without any interferences from other programs. It might help to use the '--warmup' or '--prepare' options.
  
 Benchmark 2: /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/ngap_rel18.6_specs >/dev/null 2>&1
-  Time (mean ± σ):      48.6 ms ±   1.0 ms    [User: 37.7 ms, System: 10.3 ms]
-  Range (min … max):    47.4 ms …  49.7 ms    5 runs
+  Time (mean ± σ):      48.7 ms ±  11.2 ms    [User: 33.2 ms, System: 8.7 ms]
+  Range (min … max):    39.1 ms …  66.8 ms    5 runs
  
 Summary
   /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --parse-only --no-warnings --dir test_semantic/ngap_rel18.6_specs >/dev/null 2>&1 ran
-    2.49 ± 0.16 times faster than /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/ngap_rel18.6_specs >/dev/null 2>&1
+    2.36 ± 1.41 times faster than /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/ngap_rel18.6_specs >/dev/null 2>&1
 
 ==> test_semantic/lteNRRCC
 Benchmark 1: /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --parse-only --no-warnings --dir test_semantic/lteNRRCC >/dev/null 2>&1
-  Time (mean ± σ):      65.1 ms ±   2.0 ms    [User: 57.3 ms, System: 7.4 ms]
-  Range (min … max):    62.7 ms …  68.0 ms    5 runs
+  Time (mean ± σ):      63.1 ms ±   9.8 ms    [User: 49.6 ms, System: 6.0 ms]
+  Range (min … max):    55.7 ms …  80.2 ms    5 runs
  
 Benchmark 2: /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/lteNRRCC >/dev/null 2>&1
-  Time (mean ± σ):      88.5 ms ±   9.4 ms    [User: 72.4 ms, System: 14.6 ms]
-  Range (min … max):    78.9 ms … 101.5 ms    5 runs
+  Time (mean ± σ):      77.4 ms ±  11.0 ms    [User: 63.2 ms, System: 8.6 ms]
+  Range (min … max):    68.1 ms …  96.4 ms    5 runs
+ 
+  Warning: The first benchmarking run for this command was significantly slower than the rest (96.4 ms). This could be caused by (filesystem) caches that were not filled until after the first run. You are already using the '--warmup' option which helps to fill these caches before the actual benchmark. You can either try to increase the warmup count further or re-run this benchmark on a quiet system in case it was a random outlier. Alternatively, consider using the '--prepare' option to clear the caches before each timing run.
  
 Summary
   /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --parse-only --no-warnings --dir test_semantic/lteNRRCC >/dev/null 2>&1 ran
-    1.36 ± 0.15 times faster than /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/lteNRRCC >/dev/null 2>&1
+    1.23 ± 0.26 times faster than /Users/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc --syntaxcheck --no-warnings --dir test_semantic/lteNRRCC >/dev/null 2>&1
 
