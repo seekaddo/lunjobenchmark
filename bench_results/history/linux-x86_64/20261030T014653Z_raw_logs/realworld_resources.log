@@ -1,0 +1,20 @@
+Sampling CPU and RSS on real-world directories.
+On Linux, this uses GNU time for max RSS and average CPU over repeated runs.
+On other platforms, it samples peak CPU and RSS during the run window.
+
+==> test_semantic/e1ap_rel18.4_specs
+  parse-only   cpu=85.7% max rss=17.72 MB repeats=5
+  syntaxcheck  cpu=105.0% max rss=53.73 MB repeats=5
+
+==> test_semantic/f1ap_rel18.6_specs
+  parse-only   cpu=105.3% max rss=32.86 MB repeats=5
+  syntaxcheck  cpu=101.9% max rss=162.11 MB repeats=5
+
+==> test_semantic/ngap_rel18.6_specs
+  parse-only   cpu=106.7% max rss=22.61 MB repeats=5
+  syntaxcheck  cpu=101.3% max rss=115.73 MB repeats=5
+
+==> test_semantic/lteNRRCC
+  parse-only   cpu=102.4% max rss=72.61 MB repeats=5
+  syntaxcheck  cpu=102.0% max rss=100.36 MB repeats=5
+
