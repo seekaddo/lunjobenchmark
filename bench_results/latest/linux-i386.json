@@ -1,6 +1,6 @@
 {
   "binary": "/home/runner/work/lunjobenchmark/lunjobenchmark/zig-out/bin/voltcc",
-  "generated_at_utc": "2026-11-12T18:02:03.386434+00:00",
+  "generated_at_utc": "2026-11-13T02:29:51.301628+00:00",
   "host_machine": "x86_64",
   "host_system": "Linux",
   "suites": {
@@ -9,62 +9,62 @@
         {
           "fixture": "e1ap_rel18.4_specs",
           "parse_only": {
-            "mean_sec": 0.011,
+            "mean_sec": 0.0135,
             "measurements_sec": [],
-            "stddev_sec": 0.0003
+            "stddev_sec": 0.0001
           },
           "runs": 5,
           "syntaxcheck": {
-            "mean_sec": 0.0292,
+            "mean_sec": 0.0357,
             "measurements_sec": [],
-            "stddev_sec": 0.0005
+            "stddev_sec": 0.0001
           },
-          "validator_overhead_sec": 0.0182
+          "validator_overhead_sec": 0.022200000000000004
         },
         {
           "fixture": "f1ap_rel18.6_specs",
           "parse_only": {
-            "mean_sec": 0.030899999999999997,
+            "mean_sec": 0.037,
             "measurements_sec": [],
             "stddev_sec": 0.0003
           },
           "runs": 5,
           "syntaxcheck": {
-            "mean_sec": 0.09759999999999999,
+            "mean_sec": 0.1095,
             "measurements_sec": [],
-            "stddev_sec": 0.0008
+            "stddev_sec": 0.001
           },
-          "validator_overhead_sec": 0.0667
+          "validator_overhead_sec": 0.07250000000000001
         },
         {
           "fixture": "ngap_rel18.6_specs",
           "parse_only": {
-            "mean_sec": 0.0216,
+            "mean_sec": 0.0261,
             "measurements_sec": [],
-            "stddev_sec": 0.0006
+            "stddev_sec": 0.0002
           },
           "runs": 5,
           "syntaxcheck": {
-            "mean_sec": 0.06609999999999999,
+            "mean_sec": 0.0757,
             "measurements_sec": [],
-            "stddev_sec": 0.0007
+            "stddev_sec": 0.0009
           },
-          "validator_overhead_sec": 0.04449999999999999
+          "validator_overhead_sec": 0.049600000000000005
         },
         {
           "fixture": "lteNRRCC",
           "parse_only": {
-            "mean_sec": 0.07690000000000001,
+            "mean_sec": 0.0932,
             "measurements_sec": [],
-            "stddev_sec": 0.0006
+            "stddev_sec": 0.0004
           },
           "runs": 5,
           "syntaxcheck": {
-            "mean_sec": 0.1007,
+            "mean_sec": 0.119,
             "measurements_sec": [],
-            "stddev_sec": 0.0009
+            "stddev_sec": 0.0006
           },
-          "validator_overhead_sec": 0.023799999999999988
+          "validator_overhead_sec": 0.02579999999999999
         }
       ],
       "suite": "realworld_phases"
@@ -74,44 +74,44 @@
         {
           "fixture": "e1ap_rel18.4_specs",
           "parse_only": {
-            "peak_cpu_pct": 20.4,
-            "peak_rss_kb": 18472
+            "peak_cpu_pct": 70.3,
+            "peak_rss_kb": 18616
           },
           "syntaxcheck": {
-            "peak_cpu_pct": 107.4,
+            "peak_cpu_pct": 106.1,
             "peak_rss_kb": 35481
           }
         },
         {
           "fixture": "f1ap_rel18.6_specs",
           "parse_only": {
-            "peak_cpu_pct": 106.7,
+            "peak_cpu_pct": 105.9,
             "peak_rss_kb": 21780
           },
           "syntaxcheck": {
-            "peak_cpu_pct": 103.2,
+            "peak_cpu_pct": 102.8,
             "peak_rss_kb": 103700
           }
         },
         {
           "fixture": "ngap_rel18.6_specs",
           "parse_only": {
-            "peak_cpu_pct": 104.0,
-            "peak_rss_kb": 18616
+            "peak_cpu_pct": 110.3,
+            "peak_rss_kb": 18524
           },
           "syntaxcheck": {
-            "peak_cpu_pct": 104.3,
+            "peak_cpu_pct": 105.6,
             "peak_rss_kb": 74393
           }
         },
         {
           "fixture": "lteNRRCC",
           "parse_only": {
-            "peak_cpu_pct": 103.8,
+            "peak_cpu_pct": 104.8,
             "peak_rss_kb": 47820
           },
           "syntaxcheck": {
-            "peak_cpu_pct": 103.2,
+            "peak_cpu_pct": 102.7,
             "peak_rss_kb": 65751
           }
         }
@@ -135,11 +135,11 @@
         {
           "fixture": "lteNRRCC",
           "kind": "dir",
-          "mean_sec": 0.10000000000000002,
+          "mean_sec": 0.11333333333333333,
           "measurements_sec": [
-            0.1,
-            0.1,
-            0.1
+            0.11,
+            0.11,
+            0.12
           ],
           "repeat": 3
         },
@@ -157,11 +157,11 @@
         {
           "fixture": "f1ap_rel18.6_specs",
           "kind": "dir",
-          "mean_sec": 0.09000000000000001,
+          "mean_sec": 0.10666666666666667,
           "measurements_sec": [
-            0.09,
-            0.09,
-            0.09
+            0.1,
+            0.11,
+            0.11
           ],
           "repeat": 3
         }
